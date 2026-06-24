@@ -17,7 +17,9 @@ function App() {
         className="hover:bg-amber-700 text-3xl text-amber-50 transform-3d cursor-pointer hover:scale-110 transition duration-300"
       /> */}
       <SideNavBar />
-      <NavBar />
+      <div className="flex-1">
+        <NavBar />
+      </div>
     </div>
   );
 }

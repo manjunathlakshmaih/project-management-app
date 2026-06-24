@@ -20,8 +20,11 @@ const NavBar = () => {
           <Button
             text="+ New Task"
             onClick={() => console.log("Searching for:", searchValue)}
-            className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg"
+            className="bg-linear-to-r from-violet-600 to-indigo-600 px-6 py-3 rounded-xl font-medium"
           />
+          <div className="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center">
+            A
+          </div>
         </div>
       </div>
     </div>
