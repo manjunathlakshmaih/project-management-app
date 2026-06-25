@@ -1,6 +1,8 @@
 import React from "react";
 import NavBar from "./Navbar";
 import SideNavBar from "./Sidebar";
+import { Outlet } from "react-router-dom";
+import MainContent from "./MainContent";
 
 const Layout = () => {
   return (
@@ -8,6 +10,9 @@ const Layout = () => {
       <SideNavBar />
       <div className="flex-1">
         <NavBar />
+        <MainContent>
+          <Outlet />
+        </MainContent>
       </div>
     </div>
   );

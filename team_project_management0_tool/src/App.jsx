@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Layout from "./components/layouts/Layout";
+import AppRouters from "./routes/AppRouters";
 import "./App.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-      <Layout />
+      <AppRouters />
     </div>
   );
 }
