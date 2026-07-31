@@ -1,8 +1,8 @@
 import React from "react";
 
 const NavITems = [
-  { link: "#", Item: "Dashboard" },
-  { link: "#", Item: "Projects" },
+  { link: "/", Item: "Dashboard" },
+  { link: "/projects", Item: "Projects" },
   { link: "#", Item: "Teams" },
   { link: "#", Item: "Calendar" },
   { link: "#", Item: "Analytics" },

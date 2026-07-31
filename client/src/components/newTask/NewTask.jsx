@@ -3,6 +3,7 @@ import TaskInput from "../common/TaskInput";
 import DateInput from "../common/DateInput";
 import AddTag from "../common/AddTag";
 import Textarea from "../common/Textarea";
+import SelectInput from "../common/SelectInput";
 
 const NewTask = ({ onClose }) => {
   const [description, setDescription] = useState("");
@@ -36,10 +37,11 @@ const NewTask = ({ onClose }) => {
             <TaskInput className="flex-1" label="Assignee" />
           </div>
           <div className="flex flex-row gap-10 items-start w-full">
-            <TaskInput
+            <SelectInput
+              isLableReq
               label="Priority"
               type="select"
-              Ifselect
+              className='w-full'
               options={[
                 { value: "", label: "Select Priority" },
                 { value: "High", label: "🔴 High" },
@@ -47,10 +49,11 @@ const NewTask = ({ onClose }) => {
                 { value: "low", label: "🟢 Low" },
               ]}
             />
-            <TaskInput
+            <SelectInput
+              isLableReq
               label="Priority"
               type="select"
-              Ifselect
+              className='w-full'
               options={[
                 { value: "", label: "Select Status" },
                 { value: "High", label: "🔴 To Do" },
