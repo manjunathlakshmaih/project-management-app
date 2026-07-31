@@ -1,6 +1,6 @@
 import Dots from "../../assets/dot.svg";
-
-const ProjectDetailCard = ({ heading, Priority, className, Description }) => {
+import ProgressBar from "../common/ProgressBar";
+const ProjectDetailCard = ({ heading, Priority, className, Description, progress }) => {
   return (
     <div className="w-100 border border-slate-500 bg-slate-900 px-4 pt-4 pb-4 rounded-2xl">
       <div className="flex flex-row justify-between items-center mb-4">
@@ -11,7 +11,7 @@ const ProjectDetailCard = ({ heading, Priority, className, Description }) => {
         </div>
       </div>
       <p className="w-60 line-clamp-3 line-heg leading-relaxed text-slate-400">{Description}</p>
-      
+      <ProgressBar progress={progress}/>      
     </div>
   );
 };

@@ -51,6 +51,7 @@ const Projects = () => {
         heading="E-Commerce Platform"
         Priority="High"
         Description="Modern e-commerce Web application with admin panel and analytics"
+        progress={100}
       />
     </div>
   );
