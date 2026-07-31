@@ -7,7 +7,7 @@ const ProjectSearchCard = () => {
   const [searchProjects, setSearchProjects] = useState("");
 
   return (
-    <form className="flex flex-row w-full items-center justify-between">
+    <form className="flex flex-row w-full items-center justify-between mb-9">
       <div className="flex flex-row gap-7 items-start">
         <Input
           type="text"
@@ -21,28 +21,28 @@ const ProjectSearchCard = () => {
           className="w-50"
           options={[
             { value: "", label: "Status:" },
-            { value: "Active", label: "Active Projects" },
-            { value: "Inprogress", label: "Inprogress" },
-            { value: "Completed", label: "Completed" },
-            { value: "Onhold", label: "On Hold" },
-            { value: "All", label: "All" },
+            { value: "All", label: "Status: All" },
+            { value: "Active", label: "Status: Active Projects" },
+            { value: "Inprogress", label: "Status: Inprogress" },
+            { value: "Completed", label: "Status: Completed" },
+            { value: "Onhold", label: "Status: On Hold" },
           ]}
         />
         <SelectInput
           className="w-50"
           options={[
             { value: "", label: "Priority:" },
-            { value: "High", label: "High" },
-            { value: "medium", label: "Medium" },
-            { value: "low", label: "Low" },
-            { value: "All", label: "All" },
+            { value: "All", label: "Priority: All" },
+            { value: "Active", label: "Priority: High" },
+            { value: "Inprogress", label: "Priority: Medium" },
+            { value: "Completed", label: "Priority: Low" },
           ]}
         />
         <SelectInput
           className="w-50"
           options={[
             { value: "", label: "Sort by:" },
-            { value: "Newest", label: "Newest" },
+            { value: "Newest", label: "Sort by: Newest" },
           ]}
         />
       </div>

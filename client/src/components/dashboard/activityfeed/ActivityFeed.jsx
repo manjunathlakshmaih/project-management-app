@@ -3,9 +3,9 @@ import ActivityCard from "./ActivityFeedCard";
 
 const ActivityFeed = () => {
   const teamData = [
-    { id: 1, name: "Manjunath", progress: 70, color: "bg-blue-400" },
-    { id: 2, name: "Priya", progress: 45, color: "bg-yellow-400" },
-    { id: 3, name: "Arun", progress: 92, color: "bg-green-400" },
+    { id: 1, name: "Manjunath", progress: 70},
+    { id: 2, name: "Priya", progress: 45 },
+    { id: 3, name: "Arun", progress: 92 },
   ];
 
   const recent = [
@@ -23,7 +23,6 @@ const ActivityFeed = () => {
             key={member.id}
             name={member.name}
             progress={member.progress}
-            color={member.color}
           />
         ))}
       </div>

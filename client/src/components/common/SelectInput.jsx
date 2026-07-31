@@ -4,6 +4,7 @@ const SelectInput = ({
   className,
   options = [],
   isLableReq = false,
+  defaultvalue,
 }) => {
   const renderOptions = () => {
     if (!Array.isArray(options)) return null;
@@ -38,6 +39,9 @@ const SelectInput = ({
         >
           {renderOptions()}
         </select>
+        {/* <span className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+          {defaultvalue}
+        </span> */}
         <span className="absolute top-4.5 right-3">
           <img src={downarrow} alt="Select" />
         </span>

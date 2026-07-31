@@ -1,9 +1,11 @@
 import ProjectStatsCard from "../components/project/ProjectStatsCard";
-import tatal from '../assets/total.svg';
-import active from '../assets/active.svg';
-import completed from '../assets/completed.svg';
-import paused from '../assets/paused.svg';
+import tatal from "../assets/total.svg";
+import active from "../assets/active.svg";
+import completed from "../assets/completed.svg";
+import paused from "../assets/paused.svg";
 import ProjectSearchCard from "../components/project/ProjectSearchCard";
+import ProjectDetailCard from "../components/project/ProjectDetailCard";
+
 const Projects = () => {
   const ProjectStatsData = [
     {
@@ -45,6 +47,11 @@ const Projects = () => {
         ))}
       </div>
       <ProjectSearchCard />
+      <ProjectDetailCard
+        heading="E-Commerce Platform"
+        Priority="High"
+        Description="Modern e-commerce Web application with admin panel and analytics"
+      />
     </div>
   );
 };
