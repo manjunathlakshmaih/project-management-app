@@ -3,7 +3,7 @@ import Input from "../common/Input";
 import SelectInput from "../common/SelectInput";
 import filter from "../../assets/filter.svg";
 
-const ProjectSearchCard = () => {
+const ProjectFilters = () => {
   const [searchProjects, setSearchProjects] = useState("");
 
   return (
@@ -48,10 +48,10 @@ const ProjectSearchCard = () => {
       </div>
       <div className="flex flex-row items-center justify-center h-14 px-4 bg-slate-800 border border-slate-700 text-white p-3 gap-3 rounded-2xl">
         <img src={filter} alt="filter" />
-        <smpn> Folter</smpn>
+        <span>Filter</span>
       </div>
     </form>
   );
 };
 
-export default ProjectSearchCard;
+export default ProjectFilters;

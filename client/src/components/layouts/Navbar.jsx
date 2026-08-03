@@ -12,7 +12,7 @@ const NavHeader = ({
 }) => {
   const [searchValue, setSearchValue] = useState("");
   return (
-    <div className="flex items-center justify-between border-b border-slate-800 px-8 py-5">
+    <div className="flex items-center justify-between border-b border-slate-800 p-4">
       {titleIsRequired && (
         <div className="flex flex-col items-start gap-3">
           <h1 className="text-4xl font-bold text-white">{title}</h1>

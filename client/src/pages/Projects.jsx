@@ -1,12 +1,18 @@
-import ProjectStatsCard from "../components/project/ProjectStatsCard";
+import { useState } from "react";
+import ProjectOverviewCard from "../components/project/ProjectOverviewCard";
 import tatal from "../assets/total.svg";
 import active from "../assets/active.svg";
 import completed from "../assets/completed.svg";
 import paused from "../assets/paused.svg";
-import ProjectSearchCard from "../components/project/ProjectSearchCard";
-import ProjectDetailCard from "../components/project/ProjectDetailCard";
+import ProjectFilters from "../components/project/ProjectFilters";
+import ProjectDetailCard from "../components/project/ProjectCard";
+import ProjectDetails from "./data";
+import ProjectDetailsDrawer from "../components/project/ProjectDetailsDrawer/ProjectDetailsDrawer";
 
 const Projects = () => {
+  const [openDetailDrawer, setOpenDetailDrawer] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const ProjectData = [...ProjectDetails];
   const ProjectStatsData = [
     {
       icon: tatal,
@@ -33,27 +39,51 @@ const Projects = () => {
       status: "Paused Projects",
     },
   ];
+
+  const HandleOnView = (project) => {
+    setOpenDetailDrawer(true);
+    setSelectedProject(project);
+  };
+
+  const HandleOnViewClose = () => {
+    setOpenDetailDrawer(false);
+    setSelectedProject("");
+  };
+
   return (
-    <div>
-      <div className="grid md:grid-cols-4 gap-6 mb-10">
-        {ProjectStatsData.map((stats, index) => (
-          <ProjectStatsCard
-            key={index}
-            icon={stats.icon}
-            title={stats.title}
-            value={stats.value}
-            status={stats.status}
-          />
-        ))}
+    <>
+      <div>
+        <div className="mb-10 grid gap-6 md:grid-cols-4">
+          {ProjectStatsData.map((stats, index) => (
+            <ProjectOverviewCard
+              key={index}
+              icon={stats.icon}
+              title={stats.title}
+              value={stats.value}
+              status={stats.status}
+            />
+          ))}
+        </div>
+        <ProjectFilters />
+        <div className="grid w-full grid-cols-3 gap-5">
+          {ProjectData.map((project) => (
+            <ProjectDetailCard
+              key={project.id}
+              heading={project.title}
+              Priority={project.priority}
+              Description={project.description}
+              progress={project.progress}
+              isPctRequired
+              name="Progress"
+              members={project.members}
+              dueDate={project.dueDate}
+              onView={() => HandleOnView(project)}
+            />
+          ))}
+        </div>
       </div>
-      <ProjectSearchCard />
-      <ProjectDetailCard
-        heading="E-Commerce Platform"
-        Priority="High"
-        Description="Modern e-commerce Web application with admin panel and analytics"
-        progress={100}
-      />
-    </div>
+      {openDetailDrawer && <ProjectDetailsDrawer project={selectedProject} onClick={HandleOnViewClose} />}
+    </>
   );
 };
 
