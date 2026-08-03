@@ -51,7 +51,7 @@ const Projects = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-1 gap-5">
       <div>
         <div className="mb-10 grid gap-6 md:grid-cols-4">
           {ProjectStatsData.map((stats, index) => (
@@ -83,7 +83,7 @@ const Projects = () => {
         </div>
       </div>
       {openDetailDrawer && <ProjectDetailsDrawer project={selectedProject} onClick={HandleOnViewClose} />}
-    </>
+    </div>
   );
 };
 
