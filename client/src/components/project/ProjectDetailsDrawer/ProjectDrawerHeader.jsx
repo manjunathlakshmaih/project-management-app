@@ -11,19 +11,19 @@ const ProjectDrawerHeader = ({ title, priority, onClick }) => {
       return "text-green-400 bg-gradient-to-r from-green-500/15 to-emerald-500/10 border-green-500/20";
   };
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center gap-20 mb-7">
       <div className="flex flex-row items-center gap-2">
-        <img className="w-18" src={projectIcon} alt="projectIcon" />
-        <div className="flex flex-col">
-          <h2 className="text-3xl font-bold">{title}</h2>
+        <img className="w-13" src={projectIcon} alt="projectIcon" />
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl font-bold">{title}</h2>
           <span
-            className={`w-fit flex items-center gap-2 px-2 py-1 rounded-full border backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 ${renderConditionalColor()}`}
+            className={`w-fit text-xs flex items-center gap-2 px-2 py-1 rounded-full border backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 ${renderConditionalColor()}`}
           >
             🔴 {priority} Priority
           </span>
         </div>
       </div>
-      <button onClick={onClick}>&#10006;</button>
+      <button className="" onClick={onClick}>&#10006;</button>
     </div>
   );
 };
