@@ -13,10 +13,10 @@ const ProjectDetails = [
     dueDate: "2026-08-15",
 
     taskSummary: [
-      { status: "To do", totalMembers: 8},
-      { status: "inProgress", totalMembers: 5},
-      { status: "review", totalMembers: 3},
-      { status: "done", totalMembers: 12},
+      { status: "To do", totalMembers: 8 },
+      { status: "inProgress", totalMembers: 5 },
+      { status: "review", totalMembers: 3 },
+      { status: "done", totalMembers: 12 },
     ],
 
     members: [
@@ -74,9 +74,24 @@ const ProjectDetails = [
     ],
 
     activity: [
-      { id: 1, message: "Manjunath created the project", time: "2h ago" },
-      { id: 2, message: "Priya updated project status", time: "4h ago" },
-      { id: 3, message: "Arun added Payment Integration task", time: "6h ago" },
+      {
+        id: 1,
+        type: "project_created",
+        message: "Manjunath created the project",
+        time: "2h ago",
+      },
+      {
+        id: 2,
+        type: "status_updated",
+        message: "Priya updated project status to In Progress",
+        time: "4h ago",
+      },
+      {
+        id: 3,
+        type: "task_added",
+        message: 'Arun added a new task "Payment Integration"',
+        time: "6h ago",
+      },
     ],
   },
 
@@ -94,12 +109,12 @@ const ProjectDetails = [
     startDate: "2026-07-01",
     dueDate: "2026-09-10",
 
-    taskSummary: {
-      todo: 12,
-      inProgress: 7,
-      review: 2,
-      done: 5,
-    },
+    taskSummary: [
+      { status: "To do", totalMembers: 8 },
+      { status: "inProgress", totalMembers: 5 },
+      { status: "review", totalMembers: 3 },
+      { status: "done", totalMembers: 12 },
+    ],
 
     members: [
       {
@@ -138,8 +153,24 @@ const ProjectDetails = [
     ],
 
     activity: [
-      { id: 1, message: "Amit updated homepage UI", time: "1h ago" },
-      { id: 2, message: "Neha uploaded wireframes", time: "5h ago" },
+      {
+        id: 1,
+        type: "project_created",
+        message: "Manjunath created the project",
+        time: "2h ago",
+      },
+      {
+        id: 2,
+        type: "status_updated",
+        message: "Priya updated project status to In Progress",
+        time: "4h ago",
+      },
+      {
+        id: 3,
+        type: "task_added",
+        message: 'Arun added a new task "Payment Integration"',
+        time: "6h ago",
+      },
     ],
   },
 
@@ -157,12 +188,12 @@ const ProjectDetails = [
     startDate: "2026-08-01",
     dueDate: "2026-11-15",
 
-    taskSummary: {
-      todo: 15,
-      inProgress: 3,
-      review: 1,
-      done: 2,
-    },
+    taskSummary: [
+      { status: "To do", totalMembers: 8 },
+      { status: "inProgress", totalMembers: 5 },
+      { status: "review", totalMembers: 3 },
+      { status: "done", totalMembers: 12 },
+    ],
 
     members: [
       {
@@ -234,12 +265,12 @@ const ProjectDetails = [
     startDate: "2026-04-10",
     dueDate: "2026-07-15",
 
-    taskSummary: {
-      todo: 0,
-      inProgress: 0,
-      review: 0,
-      done: 25,
-    },
+    taskSummary: [
+      { status: "To do", totalMembers: 6 },
+      { status: "inProgress", totalMembers: 4 },
+      { status: "review", totalMembers: 9 },
+      { status: "done", totalMembers: 10 },
+    ],
 
     members: [
       {

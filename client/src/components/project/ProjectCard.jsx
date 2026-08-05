@@ -31,7 +31,7 @@ const ProjectDetailCard = ({
         name={name}
         className="mt-6"
       />
-      <ProjectAssignees users={members} dueDate={dueDate} />
+      <ProjectAssignees users={members} dueDate={dueDate} className={"mt-8"}/>
       <hr className="-mx-4 my-4 border-slate-700" />
       <ProjectActions onView={onView}/>
     </div>

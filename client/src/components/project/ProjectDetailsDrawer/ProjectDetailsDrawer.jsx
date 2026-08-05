@@ -2,12 +2,13 @@ import { useState } from "react";
 import ProjectDrawerHeader from "./ProjectDrawerHeader";
 import ProjectTimelineStatus from "./ProjectTimelineStatus";
 import DetailsDrawerProgressBar from "../../common/ProgressBar";
-import ProjectTabs from "./ProjectTabs";
-import Overview from "./ProjectOverView";
+import ProjectTabs from "../projectDrawerTabs/ProjectTabs";
+import Overview from "../projectDrawerTabs/OverView";
+import TaskDetail from "../projectDrawerTabs/TaskDetail";
 
 const ProjectDetailsDrawer = ({ project, onClick }) => {
   const [isClosing, setIsClosing] = useState(false);
-  const [openOverView, setOpenOverView] = useState(false);
+  const [openOverView, setOpenOverView] = useState(true);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -19,9 +20,7 @@ const ProjectDetailsDrawer = ({ project, onClick }) => {
 
   if (!project) return null;
 
-  const tabs = ["Overview", "Tasks", "Team", "Files", "Activity"];
-
-  const handleProjectTabs = (tab) => {
+  const HandleonTabChange = (tab) => {
     setOpenOverView(tab === "Overview");
   };
 
@@ -48,10 +47,11 @@ const ProjectDetailsDrawer = ({ project, onClick }) => {
         progress={project.progress}
         name="In Progress"
         isPctRequired={true}
+        className="px-3 mb-8"
       />
-      <ProjectTabs navList={tabs} onClick={handleProjectTabs} />
+      <ProjectTabs onTabChange={HandleonTabChange} />
       {openOverView && <Overview taskSummary={project} />}
-      <hr className="my-4 border-slate-700" />
+      {/* <TaskDetail tasks={project}/> */}
     </div>
   );
 };

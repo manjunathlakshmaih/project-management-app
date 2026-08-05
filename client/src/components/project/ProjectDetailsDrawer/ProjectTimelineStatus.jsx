@@ -4,7 +4,7 @@ import status from "../../../assets/status.svg";
 
 const ProjectTimelineStatus = ({ startDate, dueDate, StatusOfPrj }) => {
   return (
-    <div className="flex flex-row justify-center gap-8 mb-10">
+    <div className="flex flex-row justify-center gap-8 mb-7">
       <div className="border-r-2 border-slate-700 pr-5">
         <span className="flex flex-row gap-1.5 items-center mb-1">
           <img src={calenderIcon} /> Start Date

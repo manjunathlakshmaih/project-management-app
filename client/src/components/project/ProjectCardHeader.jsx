@@ -2,7 +2,7 @@ import Dots from "../../assets/dot.svg";
 
 const ProjectCatdHeader = ({heading, priorityClassName, Priority}) => {
   return (
-    <div className="flex flex-row justify-between gap-2 items-center mb-4">
+    <div className="flex flex-row justify-between gap-2 items-start mb-4 px-2">
       <h2 className="text-xl font-bold min-w-20">{heading}</h2>
       <div className="flex flex-row items-center gap-2">
         <span
