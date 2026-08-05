@@ -5,6 +5,7 @@ const SelectInput = ({
   options = [],
   isLableReq = false,
   defaultvalue,
+  optionClassName
 }) => {
   const renderOptions = () => {
     if (!Array.isArray(options)) return null;
@@ -12,14 +13,14 @@ const SelectInput = ({
     return options.map((option, index) => {
       if (typeof option === "string") {
         return (
-          <option key={index} value={option}>
+          <option key={index} value={option} className={`${optionClassName} md:text-sm`}>
             {option}
           </option>
         );
       }
 
       return (
-        <option key={option.value ?? index} value={option.value ?? ""}>
+        <option key={option.value ?? index} value={option.value ?? ""} className={`${optionClassName} md:text-sm`}>
           {option.label ?? option.value ?? ""}
         </option>
       );
@@ -35,15 +36,12 @@ const SelectInput = ({
       )}
       <div className="relative">
         <select
-          className={`${className || ""} h-14 px-3 appearance-none bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500`}
+          className={`${className || ""} h-14 px-3 appearance-none bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 md:text-sm md:w-30`}
         >
           {renderOptions()}
         </select>
-        {/* <span className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
-          {defaultvalue}
-        </span> */}
-        <span className="absolute top-4.5 right-3">
-          <img src={downarrow} alt="Select" />
+        <span className="absolute top-4.5 right-3 md:top-3 md:right-5.5">
+          <img className="md:w-4.5" src={downarrow} alt="Select" />
         </span>
       </div>
     </div>
