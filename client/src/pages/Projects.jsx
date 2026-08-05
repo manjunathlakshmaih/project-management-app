@@ -65,7 +65,7 @@ const Projects = () => {
           ))}
         </div>
         <ProjectFilters />
-        <div className="grid w-full grid-cols-3 gap-5">
+        <div className="grid w-full grid-cols-3 gap-7">
           {ProjectData.map((project) => (
             <ProjectDetailCard
               key={project.id}
