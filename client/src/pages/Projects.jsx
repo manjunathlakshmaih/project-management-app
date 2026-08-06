@@ -53,7 +53,7 @@ const Projects = () => {
   return (
     <div className="w-full flex flex-row gap-5">
       <div className="flex-1">
-        <div className="mb-10 grid gap-6 grid-cols-4 md:grid-cols-2">
+        <div className="mb-10 grid gap-6 grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
           {ProjectStatsData.map((stats, index) => (
             <ProjectOverviewCard
               key={index}
@@ -65,7 +65,7 @@ const Projects = () => {
           ))}
         </div>
         <ProjectFilters className=""/>
-        <div className="grid w-full grid-cols-3 md:grid-cols-2 gap-7">
+        <div className="grid w-full lg:grid-cols-3 md:grid-cols-2 gap-7">
           {ProjectData.map((project) => (
             <ProjectDetailCard
               key={project.id}

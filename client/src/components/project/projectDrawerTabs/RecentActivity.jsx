@@ -16,7 +16,7 @@ const RecentActivity = ({ activity }) => {
     <div className="flex flex-col">
       <h3 className="text-lg font-bold mb-3">Recent Activity</h3>
       <div className="flex flex-col gap-4 mb-4">
-        {activity.map((item, index) => (
+        {activity.slice(0, 3).map((item, index) => (
           <div key={index} className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <div className="relative">

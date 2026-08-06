@@ -13,14 +13,14 @@ const SelectInput = ({
     return options.map((option, index) => {
       if (typeof option === "string") {
         return (
-          <option key={index} value={option} className={`${optionClassName} md:text-sm`}>
+          <option key={index} value={option} className={`${optionClassName} lg:text-base md:text-sm`}>
             {option}
           </option>
         );
       }
 
       return (
-        <option key={option.value ?? index} value={option.value ?? ""} className={`${optionClassName} md:text-sm`}>
+        <option key={option.value ?? index} value={option.value ?? ""} className={`${optionClassName} lg:text-base md:text-sm`}>
           {option.label ?? option.value ?? ""}
         </option>
       );
@@ -40,8 +40,8 @@ const SelectInput = ({
         >
           {renderOptions()}
         </select>
-        <span className="absolute top-4.5 right-3 md:top-3 md:right-5.5">
-          <img className="md:w-4.5" src={downarrow} alt="Select" />
+        <span className="absolute lg:top-4 lg:right-1 md:top-3 md:right-5.5">
+          <img className="lg:w-6 md:w-4.5" src={downarrow} alt="Select" />
         </span>
       </div>
     </div>

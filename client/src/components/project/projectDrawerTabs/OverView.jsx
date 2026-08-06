@@ -3,11 +3,12 @@ import RecentActivity from "./RecentActivity";
 
 const Overview = ({ taskSummary }) => {
   const summary = taskSummary?.taskSummary ?? [];
+  
   const renderColors = (status) => {
-    if (status === "To do") return "bg-red-400";
-    if (status === "inProgress") return "bg-green-400";
-    if (status === "review") return "bg-yellow-400";
-    if (status === "done") return "bg-blue-400";
+    if (status === "To Do") return "bg-red-400";
+    if (status === "In Progress") return "bg-green-400";
+    if (status === "Review") return "bg-yellow-400";
+    if (status === "Done") return "bg-blue-400";
 
     return "bg-slate-400";
   };
@@ -36,7 +37,7 @@ const Overview = ({ taskSummary }) => {
               </div>
               <div>
                 <span className="text-base text-slate-300 bg-slate-800 border border-slate-800 px-2 rounded-sm">
-                  {task.totalMembers}
+                  {task.count}
                 </span>
               </div>
             </div>

@@ -14,12 +14,11 @@ const ProjectFilters = ({className}) => {
           placeholder="Search projects..."
           value={searchProjects}
           onChange={(e) => setSearchProjects(e.target.value)}
-          className="w-full min-w-60 h-14 md:min-w-50 md:h-10"
+          className="lg:w-full lg:min-w-60 lg:h-14 md:min-w-50 md:h-10"
           isSearch
         />
         <SelectInput
-          className="w-full min-w-30 md:h-10"
-          optionClassName="md:text-xs"
+          className="lg:w-full lg:min-w-30 lg:h-14 md:h-10"
           options={[
             { value: "", label: "Status:" },
             { value: "All", label: "All" },
@@ -30,7 +29,7 @@ const ProjectFilters = ({className}) => {
           ]}
         />
         <SelectInput
-          className="w-full min-w-30 md:h-10"
+          className="w-full min-w-30 lg:h-14 md:h-10"
           options={[
             { value: "", label: "Priority:" },
             { value: "All", label: "All" },
@@ -40,16 +39,16 @@ const ProjectFilters = ({className}) => {
           ]}
         />
         <SelectInput
-          className="w-full min-w-30 md:h-10"
+          className="w-full min-w-30 lg:h-14 md:h-10"
           options={[
             { value: "", label: "Sort by:" },
             { value: "Newest", label: "Newest" },
           ]}
         />
       </div>
-      <div className="flex flex-row items-center justify-center h-14 px-4 bg-slate-800 border border-slate-700 text-white p-3 gap-3 rounded-2xl md:px-1 md:h-10">
-        <img className ="md:w-5 md:h-10" src={filter} alt="filter" />
-        <div className="md:hidden">Filter</div>
+      <div className="flex flex-row items-center justify-center lg:h-14 lg:px-4 bg-slate-800 border border-slate-700 text-white p-3 gap-3 rounded-2xl md:px-1 md:h-10">
+        <img className ="lg:w-6 md:w-5 md:h-10" src={filter} alt="filter" />
+        <div className="lg:block md:hidden">Filter</div>
       </div>
     </form>
   );

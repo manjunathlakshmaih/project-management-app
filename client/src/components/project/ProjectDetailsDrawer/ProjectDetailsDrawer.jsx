@@ -9,6 +9,7 @@ import TaskDetail from "../projectDrawerTabs/TaskDetail";
 const ProjectDetailsDrawer = ({ project, onClick }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [openOverView, setOpenOverView] = useState(true);
+  const [openTasks, setOpenTasks] = useState(false);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -22,6 +23,7 @@ const ProjectDetailsDrawer = ({ project, onClick }) => {
 
   const HandleonTabChange = (tab) => {
     setOpenOverView(tab === "Overview");
+    setOpenTasks(tab === "Tasks")
   };
 
   return (
@@ -51,7 +53,7 @@ const ProjectDetailsDrawer = ({ project, onClick }) => {
       />
       <ProjectTabs onTabChange={HandleonTabChange} />
       {openOverView && <Overview taskSummary={project} />}
-      {/* <TaskDetail tasks={project}/> */}
+      {openTasks && <TaskDetail taskData={project}/> }
     </div>
   );
 };
