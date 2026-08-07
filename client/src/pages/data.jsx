@@ -18,7 +18,7 @@ const ProjectDetails = [
         id: 1,
         name: "Manjunath",
         role: "Project Manager",
-        designation: "Owner",
+        designation: "role",
         avatar: "https://i.pravatar.cc/150?img=1",
       },
       {
@@ -76,7 +76,7 @@ const ProjectDetails = [
         id: 2,
         title: "Implement Shopping Cart Functionality",
         status: "In Progress",
-        priority: "High",
+        priority: "Medium",
         dueDate: "2026-07-12",
         assignedMembers: [
           {

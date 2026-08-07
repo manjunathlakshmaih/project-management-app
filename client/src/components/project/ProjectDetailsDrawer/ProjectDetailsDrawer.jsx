@@ -5,11 +5,11 @@ import DetailsDrawerProgressBar from "../../common/ProgressBar";
 import ProjectTabs from "../projectDrawerTabs/ProjectTabs";
 import Overview from "../projectDrawerTabs/OverView";
 import TaskDetail from "../projectDrawerTabs/TaskDetail";
+import TeamDetail from "../projectDrawerTabs/TeamDetail";
 
 const ProjectDetailsDrawer = ({ project, onClick }) => {
   const [isClosing, setIsClosing] = useState(false);
-  const [openOverView, setOpenOverView] = useState(true);
-  const [openTasks, setOpenTasks] = useState(false);
+  const [activeTab, setActiveTab] = useState("Overview");
 
   const handleClose = () => {
     setIsClosing(true);
@@ -22,13 +22,12 @@ const ProjectDetailsDrawer = ({ project, onClick }) => {
   if (!project) return null;
 
   const HandleonTabChange = (tab) => {
-    setOpenOverView(tab === "Overview");
-    setOpenTasks(tab === "Tasks")
+    setActiveTab(tab);
   };
 
   return (
     <div
-      className={`w-fit max-w-115 border border-slate-500 bg-slate-900 px-4 pt-4 pb-4 rounded-2xl transition-all duration-300 transform origin-top-right ${
+      className={`w-full max-w-115 min-w-100 border border-slate-500 bg-slate-900 px-4 pt-4 pb-4 rounded-2xl transition-all duration-300 transform origin-top-right ${
         isClosing ? "scale-0 opacity-0" : "scale-100 opacity-100"
       }`}
     >
@@ -52,8 +51,15 @@ const ProjectDetailsDrawer = ({ project, onClick }) => {
         className="px-3 mb-8"
       />
       <ProjectTabs onTabChange={HandleonTabChange} />
-      {openOverView && <Overview taskSummary={project} />}
-      {openTasks && <TaskDetail taskData={project}/> }
+      {activeTab === "Overview" && <Overview taskSummary={project} />}
+      {activeTab === "Tasks" && <TaskDetail taskData={project} />}
+      {activeTab === "Team" && <TeamDetail TeamData={project} />}
+      {activeTab === "Files" && (
+        <p className="text-slate-400">Files view is not implemented yet.</p>
+      )}
+      {activeTab === "Activity" && (
+        <p className="text-slate-400">Activity view is not implemented yet.</p>
+      )}
     </div>
   );
 };

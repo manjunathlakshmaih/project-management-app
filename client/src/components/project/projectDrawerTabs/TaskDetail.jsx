@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Button from "../../common/Button";
+import TaskCards from "./TaskCards";
 
 const TaskDetail = ({ taskData = [] }) => {
   const [renderFilteredData, setRenderFilteredData] = useState("All");
   const taskFilters = ["All", "To Do", "In Progress", "Review", "Done"];
 
-  const TaskDetails = taskData.tasks;
+  const TaskDetails = taskData?.tasks ?? [];
   const AllTasks = TaskDetails.length;
 
   const renderFilterCount = (tasks, status) => {
@@ -20,28 +21,21 @@ const TaskDetail = ({ taskData = [] }) => {
   };
 
   const filteredTask = getTasksByStatus(renderFilteredData);
-  console.log(filteredTask);
 
   return (
     <div>
-      <div className="flex flex-row items-center justify-between">
-        <h2 className="text-lg font-bold">Tasks</h2>
-        <Button text="+ Add Task" type="button" />
+      <div className="flex flex-row items-center justify-between mb-4">
+        <h2 className="text-xl font-bold">Tasks</h2>
+        <Button className="bg-blue-700 py-1 px-2 border-slate-200 rounded-2xl text-base" text="+ Add Task" type="button" />
       </div>
-      <div>
+      <div className="flex justify-between mb-3">
         {taskFilters.map((status) => (
-          <button onClick={() => setRenderFilteredData(status)} key={status}>
+          <button className="bg-slate-900 border border-slate-300 py-1 px-1.5 rounded-lg text-sm text-slate-400" onClick={() => setRenderFilteredData(status)} key={status}>
             {`${status} (${status === "All" ? AllTasks : renderFilterCount(TaskDetails, status)})`}
           </button>
         ))}
       </div>
-      <div>
-        {filteredTask.map((task, index) => (
-          <div key={index}>
-            <span>{task.title}</span>
-          </div>
-        ))}
-      </div>
+      <TaskCards taskData={filteredTask} />
     </div>
   );
 };
