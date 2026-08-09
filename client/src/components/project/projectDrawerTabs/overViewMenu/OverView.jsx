@@ -1,4 +1,4 @@
-import ProjectAssignees from "../ProjectAssignees";
+import ProjectAssignees from "./ProjectAssignees";
 import RecentActivity from "./RecentActivity";
 import TaskSummary from "./TaskSummary";
 

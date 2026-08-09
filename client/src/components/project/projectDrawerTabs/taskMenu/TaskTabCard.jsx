@@ -1,22 +1,8 @@
+import { getPriorityPointClasses, getWorkProgressClasses } from "../../../../utils/styles/taskTabHelper";
+
 const TaskCards = ({ taskData = [] }) => {
   const cardDetail = Array.isArray(taskData) ? [...taskData] : [];
-  const renderPriorityPointColor = (status) => {
-    if (status === "High") return "bg-red-600";
-    if (status === "Medium") return "bg-orange-600";
-    if (status === "Review") return "bg-yellow-600";
-    if (status === "Low") return "bg-green-600";
-    if (status === "In Progress") return "bg-blue-600";
-    return "bg-slate-400";
-  };
 
-  const renderFontcolor = (status) => {
-    if (status === "High") return "text-red-600";
-    if (status === "Medium") return "text-orange-600";
-    if (status === "Review") return "text-yellow-600";
-    if (status === "Low") return "text-green-600";
-    if (status === "In Progress") return "text-slate-500";
-    return "text-slate-400";
-  };
   return (
     <div>
       {cardDetail.map((task) => (
@@ -26,7 +12,7 @@ const TaskCards = ({ taskData = [] }) => {
         >
           <div className="flex flex-row items-center gap-2.5">
             <span
-              className={`w-4 h-4 rounded-full ${renderPriorityPointColor(task.status)} `}
+              className={`w-4 h-4 rounded-full ${getPriorityPointClasses(task.status)} `}
             ></span>
             <div>
               <h3
@@ -35,7 +21,7 @@ const TaskCards = ({ taskData = [] }) => {
               >
                 {task.title}
               </h3>
-              <span className={`${renderFontcolor(task.status)} text-sm font-medium`}>
+              <span className={`${getWorkProgressClasses(task.status)} text-sm font-medium`}>
                 {task.status}
               </span>
             </div>

@@ -1,4 +1,4 @@
-const ProjectOverviewCard = ({ icon, title, value, status }) => {
+const ProjectStats = ({ icon, title, value, status }) => {
   return (
     <div className="flex flex-row items-center justify-center glass border gap-2 border-white/10 p-2 rounded-3xl hover:bg-linear-to-r from-violet-600 to-indigo-6000">
       <div>
@@ -13,4 +13,4 @@ const ProjectOverviewCard = ({ icon, title, value, status }) => {
   );
 };
 
-export default ProjectOverviewCard;
+export default ProjectStats;

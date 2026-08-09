@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProjectOverviewCard from "../components/project/ProjectOverviewCard";
+import ProjectStats from "../components/project/ProjectStats";
 import tatal from "../assets/total.svg";
 import active from "../assets/active.svg";
 import completed from "../assets/completed.svg";
@@ -55,7 +55,7 @@ const Projects = () => {
       <div className="flex-1">
         <div className="mb-10 grid gap-6 grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
           {ProjectStatsData.map((stats, index) => (
-            <ProjectOverviewCard
+            <ProjectStats
               key={index}
               icon={stats.icon}
               title={stats.title}
@@ -64,8 +64,10 @@ const Projects = () => {
             />
           ))}
         </div>
-        <ProjectFilters className=""/>
-        <div className="grid w-full lg:grid-cols-3 md:grid-cols-2 gap-7">
+        <ProjectFilters className="" />
+        <div
+          className={`grid gap-7 grid-cols-1  ${openDetailDrawer ? "sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4" : "sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4"}`}
+        >
           {ProjectData.map((project) => (
             <ProjectDetailCard
               key={project.id}
@@ -82,7 +84,12 @@ const Projects = () => {
           ))}
         </div>
       </div>
-      {openDetailDrawer && <ProjectDetailsDrawer project={selectedProject} onClick={HandleOnViewClose} />}
+      {openDetailDrawer && (
+        <ProjectDetailsDrawer
+          project={selectedProject}
+          onClick={HandleOnViewClose}
+        />
+      )}
     </div>
   );
 };

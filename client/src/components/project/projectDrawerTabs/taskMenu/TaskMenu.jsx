@@ -1,10 +1,11 @@
 import { useState } from "react";
-import Button from "../../common/Button";
-import TaskCards from "./TaskCards";
+import Button from "../../../common/Button";
+import TaskCards from "./TaskTabCard";
+import { taskFilters } from "../../../../utils/styles/taskTabHelper";
 
 const TaskDetail = ({ taskData = [] }) => {
   const [renderFilteredData, setRenderFilteredData] = useState("All");
-  const taskFilters = ["All", "To Do", "In Progress", "Review", "Done"];
+  
 
   const TaskDetails = taskData?.tasks ?? [];
   const AllTasks = TaskDetails.length;

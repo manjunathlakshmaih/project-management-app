@@ -3,9 +3,9 @@ import ProjectDrawerHeader from "./ProjectDrawerHeader";
 import ProjectTimelineStatus from "./ProjectTimelineStatus";
 import DetailsDrawerProgressBar from "../../common/ProgressBar";
 import ProjectTabs from "../projectDrawerTabs/ProjectTabs";
-import Overview from "../projectDrawerTabs/OverView";
-import TaskDetail from "../projectDrawerTabs/TaskDetail";
-import TeamDetail from "../projectDrawerTabs/TeamDetail";
+import Overview from "../projectDrawerTabs/overViewMenu/OverView";
+import TaskDetail from "../projectDrawerTabs/taskMenu/TaskMenu";
+import TeamDetail from "../projectDrawerTabs/teamMenu/TeamDetail";
 
 const ProjectDetailsDrawer = ({ project, onClick }) => {
   const [isClosing, setIsClosing] = useState(false);

@@ -1,6 +1,6 @@
-import ProjectCatdHeader from "./ProjectCardHeader";
+import ProjectCarddHeader from "./ProjectCardHeader";
 import ProjectProgressBar from "../common/ProgressBar";
-import ProjectAssignees from "./ProjectAssignees";
+import ProjectAssignees from "./projectDrawerTabs/overViewMenu/ProjectAssignees";
 import ProjectActions from "./ProjectActions";
 
 const ProjectDetailCard = ({
@@ -16,8 +16,8 @@ const ProjectDetailCard = ({
   onView
 }) => {
   return (
-    <div className="border border-slate-500 bg-slate-900 px-4 pt-4 pb-4 rounded-2xl">
-      <ProjectCatdHeader
+    <div className="w-full min-w-80 border border-slate-500 bg-slate-900 px-4 pt-4 pb-4 rounded-2xl">
+      <ProjectCarddHeader
         priorityClassName={priorityClassName}
         heading={heading}
         Priority={Priority}

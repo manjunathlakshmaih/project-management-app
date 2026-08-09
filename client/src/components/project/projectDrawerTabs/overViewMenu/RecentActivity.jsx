@@ -1,7 +1,7 @@
-import ProjectIcon from "../../../assets/ProjectIcon.svg";
-import StatusIcon from "../../../assets/StatusIcon.svg";
-import TaskIcon from "../../../assets/TaskIcon.svg";
-import Button from "../../common/Button";
+import ProjectIcon from "../../../../assets/ProjectIcon.svg";
+import StatusIcon from "../../../../assets/StatusIcon.svg";
+import TaskIcon from "../../../../assets/TaskIcon.svg";
+import Button from "../../../common/Button";
 const RecentActivity = ({ activity }) => {
   const activityIcons = {
     project_created: ProjectIcon,
