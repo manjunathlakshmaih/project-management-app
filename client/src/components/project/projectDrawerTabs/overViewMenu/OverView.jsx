@@ -2,8 +2,9 @@ import ProjectAssignees from "./ProjectAssignees";
 import RecentActivity from "./RecentActivity";
 import TaskSummary from "./TaskSummary";
 
-const Overview = ({ taskSummary }) => {
+const Overview = ({ taskSummary, onViewAll }) => {
   const summary = taskSummary?.tasks ?? [];
+  console.log("Overview received onViewAll:", onViewAll);
   return (
     <>
       <div>
@@ -25,7 +26,7 @@ const Overview = ({ taskSummary }) => {
         />
       </div>
       <hr className="my-3 border-slate-700" />
-      <RecentActivity activity={taskSummary.activity} />
+      <RecentActivity activity={taskSummary.activity} onViewAll={onViewAll} />
     </>
   );
 };

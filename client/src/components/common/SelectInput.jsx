@@ -36,7 +36,7 @@ const SelectInput = ({
       )}
       <div className="relative">
         <select
-          className={`${className || ""} h-14 px-3 appearance-none bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 md:text-sm md:w-30`}
+          className={`${className || ""} h-14 px-3 appearance-none bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 md:text-sm`}
         >
           {renderOptions()}
         </select>

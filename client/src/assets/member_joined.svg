@@ -1,0 +1,30 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="64"
+    height="64"
+    viewBox="0 0 64 64"
+    fill="none"
+>
+    <!-- Purple Circle -->
+    <circle cx="32" cy="32" r="28" fill="#7C3AED"/>
+
+    <!-- Head -->
+    <circle
+        cx="32"
+        cy="25"
+        r="7"
+        stroke="white"
+        stroke-width="3"
+        fill="none"
+    />
+
+    <!-- Shoulders -->
+    <path
+        d="M20 44C20 38 25 34 32 34C39 34 44 38 44 44"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+    />
+</svg>

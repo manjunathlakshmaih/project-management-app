@@ -194,6 +194,22 @@ const ProjectDetails = [
         time: "2 days ago",
       },
     ],
+    files: [
+      {
+        id: 1,
+        name: "BRD.pdf",
+        type: "pdf",
+        size: "4.1 MB",
+        uploadedAt: "1 day ago",
+      },
+      {
+        id: 2,
+        name: "DatabaseDesign.docx",
+        type: "docx",
+        size: "1.1 MB",
+        uploadedAt: "2 days ago",
+      },
+    ],
   },
 
   {

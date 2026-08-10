@@ -1,0 +1,5 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 2H14L19 7V22H6V2Z" fill="#34A853"/>
+  <path d="M14 2V7H19" fill="#81C784"/>
+  <text x="12" y="17" fill="white" font-size="5" text-anchor="middle" font-family="Arial">XLS</text>
+</svg>

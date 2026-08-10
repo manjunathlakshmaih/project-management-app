@@ -6,6 +6,8 @@ import ProjectTabs from "../projectDrawerTabs/ProjectTabs";
 import Overview from "../projectDrawerTabs/overViewMenu/OverView";
 import TaskDetail from "../projectDrawerTabs/taskMenu/TaskMenu";
 import TeamDetail from "../projectDrawerTabs/teamMenu/TeamDetail";
+import FileMenu from "../projectDrawerTabs/filesMenu/fileMenu";
+import RecentActivity from "../projectDrawerTabs/overViewMenu/RecentActivity";
 
 const ProjectDetailsDrawer = ({ project, onClick }) => {
   const [isClosing, setIsClosing] = useState(false);
@@ -51,14 +53,18 @@ const ProjectDetailsDrawer = ({ project, onClick }) => {
         className="px-3 mb-8"
       />
       <ProjectTabs onTabChange={HandleonTabChange} />
-      {activeTab === "Overview" && <Overview taskSummary={project} />}
+      {activeTab === "Overview" && (
+        <Overview taskSummary={project} onViewAll={() => {
+          HandleonTabChange("Activity");
+        }} />
+      )}
       {activeTab === "Tasks" && <TaskDetail taskData={project} />}
       {activeTab === "Team" && <TeamDetail TeamData={project} />}
       {activeTab === "Files" && (
-        <p className="text-slate-400">Files view is not implemented yet.</p>
+        <FileMenu fileDetails={project}/>
       )}
       {activeTab === "Activity" && (
-        <p className="text-slate-400">Activity view is not implemented yet.</p>
+        <RecentActivity activity={project.activity} isActivityMenu={true} activeTab={activeTab} />
       )}
     </div>
   );
