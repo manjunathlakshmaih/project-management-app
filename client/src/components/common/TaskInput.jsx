@@ -1,8 +1,7 @@
 const TaskInput = ({
   label,
-  type,
-  placeholder,
   className,
+  ...rest
 }) => {
   return (
     <div className="w-full">
@@ -10,9 +9,8 @@ const TaskInput = ({
         {label}
       </label>
       <input
-        type={type}
-        placeholder={placeholder}
-        className={`w-full h-14 px-4 bg-slate-800/80 border border-slate-700 rounded-xl text-white placeholder:text-slate-500 focus:ring-2 focus:ring-violet-500 focus:border-violet-500 transition-all ${className || ""}`}
+        {...rest}
+        className={`w-full h-12 px-4 bg-slate-800/80 border border-slate-700 rounded-xl text-white placeholder:text-slate-500 focus:ring-2 focus:ring-violet-500 focus:border-violet-500 transition-all ${className || ""}`}
       />
     </div>
   );

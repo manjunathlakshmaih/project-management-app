@@ -1,6 +1,6 @@
 require("dotenv").config();
-const fs = require('fs');
-const useRoutes = require('./routes/taskRoutes');
+const fs = require("fs");
+const createTask = require("./routes/taskRoutes");
 const express = require("express");
 const cors = require("cors");
 
@@ -13,15 +13,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.use('/api', useRoutes);
-// Test Route
-app.get("/", (req, res) => {
-  res.send("Project Management API Running...");
-});
-fs.readFileSync('')
-app.use('/data', (req, res) => {
-
-})
+app.use("/api/tasks", createTask);
 
 const startServer = async () => {
   await connectDB();

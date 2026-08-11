@@ -1,4 +1,4 @@
-const Textarea = ({label, placeholder}) => {
+const Textarea = ({ label, placeholder, defaultValue, ...register }) => {
   return (
     <div>
       <label className="block mb-2 text-sm font-medium text-slate-300">
@@ -6,8 +6,9 @@ const Textarea = ({label, placeholder}) => {
       </label>
 
       <textarea
-        rows={3}
+        rows={2}
         placeholder={placeholder}
+        defaultValue={defaultValue}
         className="
       w-full
       p-4
@@ -22,6 +23,7 @@ const Textarea = ({label, placeholder}) => {
       focus:ring-2
       focus:ring-violet-500
     "
+        {...register}
       />
     </div>
   );
