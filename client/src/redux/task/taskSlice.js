@@ -5,24 +5,25 @@ const initialState = {
   loading: false,
   error: null,
 };
-const taskSclice = createSlice({
+const taskSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase(fetchTasks.pending, (state) => {
+    builder
+    .addCase(fetchTasks.pending, (state) => {
       state.loading = true;
-    });
-    addCase(fetchTasks.fulfilled, (state, action) => {
+    })
+    .addCase(fetchTasks.fulfilled, (state, action) => {
       state.loading = false;
       state.tasks = action.payload;
-    });
-    addCase(fetchTasks.rejected, (state, action) => {
+    })
+    .addCase(fetchTasks.rejected, (state, action) => {
       (state, (loading = false));
       state.error = action.error.message;
-    });
+    })
   },
 });
 
-export default taskSclice;
+export default taskSlice.reducer;

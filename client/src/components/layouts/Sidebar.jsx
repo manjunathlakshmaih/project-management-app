@@ -3,7 +3,7 @@ import React from "react";
 const NavITems = [
   { link: "/", Item: "Dashboard" },
   { link: "/projects", Item: "Projects" },
-  { link: "#", Item: "Teams" },
+  { link: "/teams", Item: "Teams" },
   { link: "#", Item: "Calendar" },
   { link: "#", Item: "Analytics" },
   { link: "#", Item: "Settings" },

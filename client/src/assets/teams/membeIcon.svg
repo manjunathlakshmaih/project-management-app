@@ -1,0 +1,50 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#bgGradient)"/>
+
+  <!-- User -->
+  <circle
+    cx="28"
+    cy="24"
+    r="6"
+    stroke="white"
+    stroke-width="2.5"
+    fill="none"
+  />
+
+  <path
+    d="M18 40C18 34.5 22.5 31 28 31C33.5 31 38 34.5 38 40"
+    stroke="white"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Plus -->
+  <line
+    x1="42"
+    y1="28"
+    x2="42"
+    y2="40"
+    stroke="white"
+    stroke-width="2.5"
+    stroke-linecap="round"
+  />
+
+  <line
+    x1="36"
+    y1="34"
+    x2="48"
+    y2="34"
+    stroke="white"
+    stroke-width="2.5"
+    stroke-linecap="round"
+  />
+</svg>

@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "../components/layouts/Layout";
 import Dashboard from "../pages/Dashboard";
 import Projects from "../pages/Projects";
+import TeamMenu from "../pages/Teams";
 
 const AppRouters = () => {
   return (
@@ -9,6 +10,7 @@ const AppRouters = () => {
       <Route element={<Layout />}>
         <Route path="/" element={<Dashboard />} />
         <Route path="projects" element={<Projects />} />
+        <Route path="teams" element={<TeamMenu />} />
       </Route>
     </Routes>
   );

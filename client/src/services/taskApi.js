@@ -7,5 +7,5 @@ export const getTasks = async () => {
 
 export const createTask = async (taskData) => {
     const response = await api.post("/tasks", taskData);
-    return response.data
+    return response.data;
 }

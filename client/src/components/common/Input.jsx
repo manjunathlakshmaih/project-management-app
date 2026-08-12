@@ -1,12 +1,14 @@
 import search from "../../assets/search.svg";
-const Input = ({ type, placeholder, value, onChange, className, isSearch = false }) => {
+const Input = ({ label, className, isSearch = false, ...props }) => {
   return (
     <div className="relative">
+      {label && (
+        <label className="text-sm font-semibold text-slate-300 mb-2 block">
+          {label}
+        </label>
+      )}
       <input
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
+        {...props}
         className={`${className || ""} bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 outline-none md:placeholder:text-sm lg:placeholder:text-base`}
       />
       {isSearch && (

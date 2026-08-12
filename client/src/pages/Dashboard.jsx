@@ -1,9 +1,19 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import DashboardHeader from "../components/dashboard/DashboardHeader";
 import StatsCard from "../components/dashboard/StatsCard";
 import KanbanBoard from "../components/dashboard/KanbanBoard/KanbanBoard";
 import ActivityFeed from "../components/dashboard/activityfeed/ActivityFeed";
+import { fetchTasks } from "../redux/task/taskThunk";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const { tasks, loading, error } = useSelector((state) => state.tasks);
+  console.log("taskData:",tasks);
+
+  useEffect(() => {
+    dispatch(fetchTasks());
+  }, []);
   const StatsCardDetails = [
     { Heading: "Total Task", data: 245 },
     { Heading: "Completed", data: 245 },

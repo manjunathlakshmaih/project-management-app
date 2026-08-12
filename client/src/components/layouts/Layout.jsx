@@ -3,11 +3,13 @@ import NavBar from "./Navbar";
 import SideNavBar from "./Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import MainContent from "./MainContent";
-import NewTask from "../newTask/NewTask";
+import NewTask from "../popups/NewTask";
+import RegisterNewMember from "../teams/registerNewMember";
 
 const Layout = () => {
   const location = useLocation();
   const [openNewTaskPopup, setOpenNewTaskPopup] = useState(false);
+  const [openCreteMember, setOpenCreteMember] = useState(false);
 
   const pageConfig = {
     "/": {
@@ -18,37 +20,50 @@ const Layout = () => {
       title: "Projects",
       subTitle: "Manage and track all your projects.",
       buttonText: "+ New Project",
-      toggleRequire: true
+      toggleRequire: true,
+    },
+    "/teams": {
+      titleIsRequired: true,
+      title: "Teams",
+      subTitle: "Manage your team members and their access..",
+      buttonText: "+ Add Team Members",
+      toggleRequire: true,
     },
   };
 
   const currentPage = pageConfig[location.pathname] || {};
 
   const handleAddNewTask = () => {
-    setOpenNewTaskPopup(true);
+    if (location.pathname === "/teams") {
+      setOpenCreteMember(true);
+    } else {
+      setOpenNewTaskPopup(true);
+    }
   };
 
   const handleClosePopup = () => {
     setOpenNewTaskPopup(false);
+    setOpenCreteMember(false);
   };
 
   return (
-    <div className="relative flex min-h-screen">
+    <div className="relative flex flex-row min-h-screen">
       <SideNavBar />
       <div className="flex-1">
         <NavBar
-          titleIsRequired = {currentPage.titleIsRequired}
+          titleIsRequired={currentPage.titleIsRequired}
           title={currentPage.title}
           subTitle={currentPage.subTitle}
           buttonText={currentPage.buttonText}
           onClick={handleAddNewTask}
-          toggleRequire = {currentPage.toggleRequire}
+          toggleRequire={currentPage.toggleRequire}
         />
         <MainContent>
           <Outlet />
         </MainContent>
       </div>
       {openNewTaskPopup && <NewTask onClose={handleClosePopup} />}
+      {openCreteMember && <RegisterNewMember handleClose={handleClosePopup}/>}
     </div>
   );
 };

@@ -35,19 +35,6 @@ const NewTask = ({ onClose }) => {
 
   const description = watch("description");
 
-  // useEffect(() => {
-  //   fetchTasks()
-  // }, [])
-
-  // const fetchTasks = async () => {
-  //   try {
-  //     const data = await getTasks();
-  //     console.log("task data:", data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
   const handleAddTag = (tag) => {
     const normalizedTag = tag.trim();
 

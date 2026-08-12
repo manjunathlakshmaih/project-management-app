@@ -31,11 +31,11 @@ const NavHeader = ({
           />
         </div>
       </header>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
         <Button
           text={buttonText}
           onClick={onClick}
-          className="bg-linear-to-r from-violet-600 to-indigo-600 px-6 py-3 rounded-xl font-medium"
+          className="bg-linear-to-r from-violet-600 to-indigo-600 h-14 px-1 rounded-xl font-medium w-full"
         />
         <div className="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center">
           A
