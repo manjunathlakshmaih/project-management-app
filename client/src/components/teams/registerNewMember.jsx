@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MemberIcon from "../../assets/teams/membeIcon.svg";
 import { useForm } from "react-hook-form";
 import Input from "../common/Input";
@@ -8,6 +8,8 @@ import {
   designationOptions,
   statusOptions,
 } from "../../utils/DropdownSelection/TeamOptions";
+import DragAndDrop from "../common/dragDrop";
+import { createTeamMember } from "../../services/teamApi";
 
 const RegisterNewMember = ({ handleClose }) => {
   const [role, setRole] = useState("");
@@ -24,14 +26,32 @@ const RegisterNewMember = ({ handleClose }) => {
       role: "",
       designation: "",
       phoneNo: "",
+      profileImage: null,
       status: "",
     },
   });
 
-  const onSubmit = (formData) => {
-    console.log("Submitted");
-    console.log("team dat:", formData);
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+
+    formData.append("fullName", data.fullName);
+    formData.append("email", data.email);
+    formData.append("role", data.role);
+    formData.append("designation", data.designation);
+    formData.append("phoneNo", data.phoneNo);
+    formData.append("status", data.status);
+
+    formData.append("profileImage", data.profileImage);
+
+    try {
+      const response = await createTeamMember(formData);
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div className="bg-slate-800/10 border border-slate-200/10 rounded-xl w-full min-w-50 max-w-100 p-3.5 mt-2 mr-2 mb-2">
       <div className="flex items-start justify-between mb-10">
@@ -52,7 +72,7 @@ const RegisterNewMember = ({ handleClose }) => {
         <Input
           label="Full Name"
           type="text"
-          className="w-full mb-3"
+          className="w-full mb-2"
           placeholder="Enter full name"
           {...register("fullName", {
             required: "Full name is required",
@@ -61,7 +81,7 @@ const RegisterNewMember = ({ handleClose }) => {
         <Input
           label="Email Address"
           type="email"
-          className="w-full mb-3"
+          className="w-full mb-2"
           placeholder="Enter email address"
           {...register("email", {
             required: "Email is required",
@@ -71,7 +91,7 @@ const RegisterNewMember = ({ handleClose }) => {
           label="Role"
           type="select"
           isLableReq
-          className="w-full mb-3"
+          className="w-full mb-2"
           options={roleOptions}
           {...register("role", {
             onChange: (e) => setRole(e.target.value),
@@ -79,7 +99,7 @@ const RegisterNewMember = ({ handleClose }) => {
         />
         <SelectInput
           label="Designation"
-          className="w-full mb-3"
+          className="w-full mb-2"
           isLableReq
           options={designationOptions[role] || []}
           {...register("designation")}
@@ -87,19 +107,29 @@ const RegisterNewMember = ({ handleClose }) => {
         <Input
           label="Phone Number"
           type="number"
-          className="w-full mb-3"
+          className="w-full mb-2"
           placeholder="Enter phone number"
           {...register("phoneNo")}
+        />
+        <DragAndDrop
+          name="c"
+          label="Profile Image"
+          accept=".png,.jpg,.jpeg"
+          allowedTypes={["image/png", "image/jpeg"]}
+          maxSize={2}
+          onFileSelect={(file) => console.log(file)}
+          setValue={setValue}
+          {...register("profileImage")}
         />
         <SelectInput
           label="Status"
           type="select"
           isLableReq
-          className="w-full mb-3"
+          className="w-full mb-2"
           options={statusOptions}
           {...register("status")}
         />
-        <div className="flex flex-row justify-end gap-5 mt-10 mb-5 ">
+        <div className="flex flex-row justify-end gap-5 mt-6 ">
           <button
             className="bg-slate-800 px-4 py-2 rounded-lg"
             type="button"

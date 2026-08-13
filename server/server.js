@@ -15,6 +15,10 @@ app.use(express.json());
 
 app.use("/api/tasks", createTask);
 
+app.use("/uploads", express.static("uploads"));
+
+app.use("/api/team-members", require("./routes/teamMemberRoutes"));
+
 const startServer = async () => {
   await connectDB();
 

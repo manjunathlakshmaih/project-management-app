@@ -1,0 +1,42 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cloudGradient" x1="0" y1="0" x2="64" y2="64">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#glow)">
+    <path
+      d="M20 46H18C11.4 46 6 40.6 6 34C6 27.9 10.6 22.9 16.6 22.1C19 14.9 25.7 10 33.3 10C42.8 10 50.6 17.2 51.7 26.4C57 27.5 61 32.2 61 38C61 44.6 55.6 50 49 50H20"
+      stroke="url(#cloudGradient)"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"
+    />
+
+    <path
+      d="M33 50V30"
+      stroke="url(#cloudGradient)"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M26 37L33 30L40 37"
+      stroke="url(#cloudGradient)"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+</svg>

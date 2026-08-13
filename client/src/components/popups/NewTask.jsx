@@ -61,7 +61,6 @@ const NewTask = ({ onClose }) => {
   }
 };
 
-
   return (
     <div className="fixed inset-0 z-40">
       <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 rounded-3xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-xl shadow-2xl p-8 w-150.5 ">
