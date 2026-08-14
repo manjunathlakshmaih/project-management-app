@@ -26,6 +26,37 @@ const createTeamMember = async (req, res) => {
   }
 };
 
+const getTeamMember = async (req, res) => {
+  try {
+    const teams = await TeamMember.find();
+    const stats = [{
+      totalMembers: teams.length,
+      activeMember: teams.filter(
+        (member) => member.status === "Active"
+      ).length,
+      developers: teams.filter(
+        (member)=> member.role === "developer"
+      ).length,
+      mangers: teams.filter(
+        (member)=> member.role === "project_manager"
+      ).length,
+    }]
+    res.status(200).json({
+      success: true,
+      data: teams,
+      count: stats,
+    })
+  } catch (error) {
+    console.log("get memeber:", error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    })
+  }
+}
+
 module.exports = {
   createTeamMember,
+  getTeamMember,
 };

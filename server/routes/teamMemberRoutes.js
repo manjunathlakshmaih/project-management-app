@@ -6,6 +6,7 @@ const upload = require("../middlewares/upload");
 
 const {
   createTeamMember,
+  getTeamMember,
 } = require("../controllers/teamMemberController");
 
 router.post(
@@ -13,5 +14,7 @@ router.post(
   upload.single("profileImage"),
   createTeamMember
 );
+
+router.get('/get-team-data', getTeamMember);
 
 module.exports = router;

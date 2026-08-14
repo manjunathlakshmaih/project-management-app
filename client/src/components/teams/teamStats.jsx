@@ -1,4 +1,6 @@
 const teamStats = ({ statsSummary }) => {
+  console.log(statsSummary)
+  
   return (
     <div className="flex flex-row justify-between flex-wrap border border-slate-800 bg-slate-800 rounded-2xl">
       {statsSummary.map((stats, id) => (

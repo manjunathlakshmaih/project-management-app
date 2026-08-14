@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchTasks } from "./taskThunk";
+
 const initialState = {
   tasks: [],
   loading: false,
