@@ -10,9 +10,11 @@ const TeamMenu = () => {
   );
   const statsData = teams.count;
   console.log(statsData);
+
   useEffect(() => {
     dispatch(fetchTeamMembers());
-  }, []);
+  }, [dispatch]);
+
   return (
     <div>
       <div>

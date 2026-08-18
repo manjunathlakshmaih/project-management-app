@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import MemberIcon from "../../assets/teams/membeIcon.svg";
 import { useForm } from "react-hook-form";
 import Input from "../common/Input";
@@ -10,9 +11,11 @@ import {
 } from "../../utils/DropdownSelection/TeamOptions";
 import DragAndDrop from "../common/dragDrop";
 import { createTeamMember } from "../../services/teamApi";
+import { addTeamMember } from "../../redux/teams/TeamThunk";
 
 const RegisterNewMember = ({ handleClose }) => {
   const [role, setRole] = useState("");
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -44,9 +47,10 @@ const RegisterNewMember = ({ handleClose }) => {
     formData.append("profileImage", data.profileImage);
 
     try {
-      const response = await createTeamMember(formData);
-
+      const response = await dispatch(addTeamMember(formData)).unwrap();
       console.log(response);
+      reset();
+      handleClose = true;
     } catch (error) {
       console.log(error);
     }
