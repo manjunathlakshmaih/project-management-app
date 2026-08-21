@@ -3,6 +3,7 @@ import { fetchTeamMembers, addTeamMember } from "../teams/TeamThunk";
 
 const initialState = {
   teams: [],
+  count: [],
   loading: false,
   error: null,
 };
@@ -21,7 +22,8 @@ const TeamSlice = createSlice({
       .addCase(fetchTeamMembers.fulfilled, (state, action) => {
         console.log("payload", action.payload);
         state.loading = false;
-        state.teams = action.payload;
+        state.teams = action.payload.data;
+        state.count = action.payload.count
       })
       .addCase(fetchTeamMembers.rejected, (state, action) => {
         state.loading = false;

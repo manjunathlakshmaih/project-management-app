@@ -28,7 +28,7 @@ const statConfig = {
 
 const teamStats = ({ statsSummary = [] }) => {
   return (
-    <div className="w-full flex flex-wrap justify-between gap-5">
+    <div className="w-full flex flex-wrap gap-5 mb-5">
       {statsSummary.map((stats, id) => {
         const config = statConfig[stats.label];
         return (

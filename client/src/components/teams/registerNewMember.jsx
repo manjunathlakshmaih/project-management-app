@@ -11,7 +11,7 @@ import {
 } from "../../utils/DropdownSelection/TeamOptions";
 import DragAndDrop from "../common/dragDrop";
 import { createTeamMember } from "../../services/teamApi";
-import { addTeamMember } from "../../redux/teams/TeamThunk";
+import { addTeamMember, fetchTeamMembers } from "../../redux/teams/TeamThunk";
 
 const RegisterNewMember = ({ handleClose }) => {
   const [role, setRole] = useState("");
@@ -47,10 +47,9 @@ const RegisterNewMember = ({ handleClose }) => {
     formData.append("profileImage", data.profileImage);
 
     try {
-      const response = await dispatch(addTeamMember(formData)).unwrap();
-      console.log(response);
+      await dispatch(addTeamMember(formData)).unwrap();
       reset();
-      handleClose = true;
+      dispatch(fetchTeamMembers());
     } catch (error) {
       console.log(error);
     }
@@ -116,7 +115,7 @@ const RegisterNewMember = ({ handleClose }) => {
           {...register("phoneNo")}
         />
         <DragAndDrop
-          name="c"
+          name="profileImage"
           label="Profile Image"
           accept=".png,.jpg,.jpeg"
           allowedTypes={["image/png", "image/jpeg"]}
