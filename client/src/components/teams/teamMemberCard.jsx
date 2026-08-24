@@ -28,7 +28,8 @@ const TeamMemberCard = ({ teamData }) => {
             <div className="relative">
               <img
                 className="w-20 h-20 rounded-full"
-                src={`http://localhost:5000/${data.profileImage.replace(/\\/g, "/")}`}
+                src={data && data.profileImage ? `http://localhost:5000/${data.profileImage.replace(/\\/g, "/")}` : ""}
+                alt={data?.fullName || "profile"}
               />
               <span
                 className={`w-4 h-4 absolute ${

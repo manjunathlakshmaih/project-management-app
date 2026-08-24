@@ -16,7 +16,7 @@ const Input = ({ label, className, isSearch = false, ...props }) => {
           <img className="lg:w-6 md:w-4.5" src={search} alt="search" />
         </span>
       )}
-    </ div>
+    </div>
   );
 };
 
