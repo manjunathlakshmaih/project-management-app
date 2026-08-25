@@ -1,5 +1,5 @@
-const MainContent = ({ children }) => {
-  return <main className="p-8">{children}</main>;
+const MainContent = ({ children, isRegisterCardOpened }) => {
+  return <main className={`p-8 ${isRegisterCardOpened}`}>{children}</main>;
 };
 
 export default MainContent;

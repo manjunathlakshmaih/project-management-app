@@ -14,11 +14,12 @@ const ProjectFilters = ({className}) => {
           placeholder="Search projects..."
           value={searchProjects}
           onChange={(e) => setSearchProjects(e.target.value)}
-          className="lg:w-full lg:min-w-60 lg:h-14 md:min-w-50 md:h-10"
+          className="w-80 pl-10 h-14"
           isSearch
+          iconClass="left-2 top-4"
         />
         <SelectInput
-          className="lg:w-full lg:min-w-30 lg:h-14 md:h-10"
+          selectInputClass="lg:w-full lg:min-w-30 lg:h-14 md:h-10"
           options={[
             { value: "", label: "Status:" },
             { value: "All", label: "All" },
@@ -29,7 +30,7 @@ const ProjectFilters = ({className}) => {
           ]}
         />
         <SelectInput
-          className="w-full min-w-30 lg:h-14 md:h-10"
+          selectInputClass="w-full min-w-30 lg:h-14 md:h-10"
           options={[
             { value: "", label: "Priority:" },
             { value: "All", label: "All" },
@@ -39,7 +40,7 @@ const ProjectFilters = ({className}) => {
           ]}
         />
         <SelectInput
-          className="w-full min-w-30 lg:h-14 md:h-10"
+          selectInputClass="w-full min-w-30 lg:h-14 md:h-10"
           options={[
             { value: "", label: "Sort by:" },
             { value: "Newest", label: "Newest" },

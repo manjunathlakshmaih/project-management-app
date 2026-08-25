@@ -40,13 +40,13 @@ const SelectInput = ({
       <div className="relative">
         <select
           defaultValue={defaultValue}
-          className={`${selectInputClass || ""} relative h-12 px-3 appearance-none bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 md:text-sm`}
+          className={`${selectInputClass || ""} relative h-12 pl-3 pr-10 appearance-none bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 md:text-sm cursor-pointer`}
           {...register}
         >
           {renderOptions()}
         </select>
-        <span className={`absolute lg:top-4 lg:right-1 md:top-3 md:right-5.5 ${dropIconClassName}`}>
-          <img className="lg:w-6 md:w-4.5" src={downarrow} alt="Select" />
+        <span className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none select-none">
+          <img className="w-5 h-5" src={downarrow} alt="Select" />
         </span>
       </div>
     </div>

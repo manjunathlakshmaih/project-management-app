@@ -28,13 +28,13 @@ const statConfig = {
 
 const teamStats = ({ statsSummary = [] }) => {
   return (
-    <div className="w-full flex flex-wrap gap-5 mb-5">
+    <div className="w-full flex justify-around flex-wrap gap-5 mb-5">
       {statsSummary.map((stats, id) => {
         const config = statConfig[stats.label];
         return (
           <div
             key={id}
-            className="flex flex-row justify-center gap-5 px-5 py-4 items-start flex-wrap border border-slate-800 bg-slate-800/10 rounded-2xl"
+            className="w-full min-w-60 max-w-80 flex flex-row justify-center gap-5 px-5 py-4 items-start flex-wrap border border-slate-800 bg-slate-800/10 rounded-2xl"
           >
             <div className={`w-20 ${config.bgColor} flex justify-center rounded-2xl py-1`}>
               <img src={config.icon} alt={stats.label} />

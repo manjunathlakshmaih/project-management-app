@@ -59,7 +59,7 @@ const Layout = () => {
           toggleRequire={currentPage.toggleRequire}
         />
         <MainContent>
-          <Outlet />
+          <Outlet context={{ isRegisterCardOpened: openCreteMember }} />
         </MainContent>
       </div>
       {openNewTaskPopup && <NewTask onClose={handleClosePopup} />}

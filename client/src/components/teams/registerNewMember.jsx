@@ -94,7 +94,7 @@ const RegisterNewMember = ({ handleClose }) => {
           label="Role"
           type="select"
           isLableReq
-          className="w-full mb-2"
+          selectInputClass="w-full mb-2"
           options={roleOptions}
           {...register("role", {
             onChange: (e) => setRole(e.target.value),
@@ -102,7 +102,7 @@ const RegisterNewMember = ({ handleClose }) => {
         />
         <SelectInput
           label="Designation"
-          className="w-full mb-2"
+          selectInputClass="w-full mb-2"
           isLableReq
           options={designationOptions[role] || []}
           {...register("designation")}
@@ -128,7 +128,7 @@ const RegisterNewMember = ({ handleClose }) => {
           label="Status"
           type="select"
           isLableReq
-          className="w-full mb-2"
+          selectInputClass="w-full mb-2"
           options={statusOptions}
           {...register("status")}
         />
