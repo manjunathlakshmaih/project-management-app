@@ -55,7 +55,7 @@ const TeamMemberCard = ({ teamData }) => {
           >
             {data.role}
           </span>
-          <p className="text-sm text-slate-500">{data.email}</p>
+          <p className="text-sm text-slate-500 overflow-hidden" title={data.email}>{data.email}</p>
         </div>
       ))}
     </div>

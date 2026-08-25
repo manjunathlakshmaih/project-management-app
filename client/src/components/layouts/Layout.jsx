@@ -62,8 +62,12 @@ const Layout = () => {
           <Outlet context={{ isRegisterCardOpened: openCreteMember }} />
         </MainContent>
       </div>
-      {openNewTaskPopup && <NewTask onClose={handleClosePopup} />}
-      {openCreteMember && <RegisterNewMember handleClose={handleClosePopup}/>}
+      {openNewTaskPopup && (
+        <div>
+          <NewTask onClose={handleClosePopup} />{" "}
+        </div>
+      )}
+      {openCreteMember && <RegisterNewMember handleClose={handleClosePopup} />}
     </div>
   );
 };
