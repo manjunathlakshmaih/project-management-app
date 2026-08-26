@@ -9,6 +9,7 @@ const DragAndDrop = ({
   maxSize,
   onFileSelect,
   setValue,
+  className
 }) => {
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
@@ -54,7 +55,7 @@ const DragAndDrop = ({
       </label>
 
       <div
-        className="w-full flex flex-col justify-center items-center p-2 border-2 border-dashed border-slate-600 rounded-2xl bg-slate-800/10 mb-2"
+        className={`flex flex-col justify-center items-center p-2 border-2 border-dashed border-slate-600 rounded-2xl bg-slate-800/10 mb-2 ${className}`}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >

@@ -8,6 +8,7 @@ const SelectInput = ({
   defaultValue,
   optionClassName,
   dropIconClassName,
+  onFocus,
   ...register
 }) => {
   const renderOptions = () => {
@@ -40,6 +41,7 @@ const SelectInput = ({
       <div className="relative">
         <select
           defaultValue={defaultValue}
+          onFocus={onFocus}
           className={`${selectInputClass || ""} relative pl-3 pr-10 appearance-none bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 md:text-sm cursor-pointer`}
           {...register}
         >
