@@ -110,7 +110,7 @@ const NewTask = ({ onClose }) => {
               isLableReq
               label="Priority"
               type="select"
-              className="w-full"
+               selectInputClass="w-62 h-12"
               options={priorityOptions()}
               {...register("priority")}
             />
@@ -118,7 +118,7 @@ const NewTask = ({ onClose }) => {
               isLableReq
               label="Status"
               type="select"
-              className="w-full"
+              selectInputClass="w-62 h-12"
               options={statusOptions()}
               {...register("status")}
             />

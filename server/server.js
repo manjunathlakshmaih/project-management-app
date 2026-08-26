@@ -19,6 +19,8 @@ app.use("/uploads", express.static("uploads"));
 
 app.use("/api/team-members", require("./routes/teamMemberRoutes"));
 
+app.use("/api/register-project", require("./routes/projectRoutes"));
+
 const startServer = async () => {
   await connectDB();
 

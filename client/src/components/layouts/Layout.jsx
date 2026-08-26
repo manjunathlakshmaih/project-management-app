@@ -59,15 +59,19 @@ const Layout = () => {
           toggleRequire={currentPage.toggleRequire}
         />
         <MainContent>
-          <Outlet context={{ isRegisterCardOpened: openCreteMember }} />
+          <Outlet />
         </MainContent>
       </div>
       {openNewTaskPopup && (
-        <div>
-          <NewTask onClose={handleClosePopup} />{" "}
+        <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" >
+          <NewTask onClose={handleClosePopup} />
         </div>
       )}
-      {openCreteMember && <RegisterNewMember handleClose={handleClosePopup} />}
+      {openCreteMember && (
+        <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm">
+          <RegisterNewMember handleClose={handleClosePopup} />
+        </div>
+      )}
     </div>
   );
 };

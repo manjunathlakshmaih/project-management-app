@@ -1,8 +1,6 @@
 import dot from "../../assets/Dot.svg";
-import { useOutletContext } from "react-router-dom";
 
 const TeamMemberCard = ({ teamData }) => {
-  const { isRegisterCardOpened } = useOutletContext();
   const membersData = Array.isArray(teamData) ? teamData : [];
 
   const roleColors = {
@@ -21,7 +19,7 @@ const TeamMemberCard = ({ teamData }) => {
   };
 
   return (
-    <div className={`grid gap-3.5 ${isRegisterCardOpened ? "sm:grid-cols-2 lg:grid-cols-3 xlg:grid-cols-4" : "grid-cols-3 lg:grid-cols-4 xlg:grid-cols-5" }`}>
+    <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4 xlg:grid-cols-4">
       {membersData.map((data, id) => (
         <div
           key={id}

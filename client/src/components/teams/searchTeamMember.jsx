@@ -20,13 +20,13 @@ const SearchTeamMember = ({ filters, onFilterChange, onReset, searchTeam }) => {
         onChange={(e) => onFilterChange("search", e.target.value)}
       />
       <SelectInput
-        selectInputClass="w-40"
+        selectInputClass="w-40 h-12"
         options={roleOptions}
         value={filters.role}
         onChange={(e) => onFilterChange("role", e.target.value)}
       />
       <SelectInput
-        selectInputClass="w-35"
+        selectInputClass="w-35 h-12"
         options={statusOptions}
         value={filters.status}
         onChange={(e) => onFilterChange("status", e.target.value)}
@@ -34,7 +34,7 @@ const SearchTeamMember = ({ filters, onFilterChange, onReset, searchTeam }) => {
       <SelectInput
         options={sortOptions}
         value={filters.sortBy}
-        selectInputClass="w-35"
+        selectInputClass="w-35 h-12"
         onChange={(e) => onFilterChange("sortBy", e.target.value)}
       />
       <button

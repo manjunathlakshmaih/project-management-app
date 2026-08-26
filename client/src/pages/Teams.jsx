@@ -6,7 +6,6 @@ import TeamMemberCard from "../components/teams/teamMemberCard";
 import SearchTeamMember from "../components/teams/searchTeamMember";
 import LoadingIndecator from "../components/common/loading-indecator";
 import Pagination from "../components/common/Pagination";
-import { useOutletContext } from "react-router-dom";
 
 const intialFilters = {
   search: "",
@@ -17,7 +16,6 @@ const intialFilters = {
 
 const TeamMenu = () => {
   const dispatch = useDispatch();
-  const { isRegisterCardOpened } = useOutletContext();
   const { teams, count, loading, error } = useSelector(
     (state) => state.teamMember,
   );
@@ -26,7 +24,7 @@ const TeamMenu = () => {
   const statsData = count;
   const teamMemberData = teams;
   
-  const itemsPerPage = isRegisterCardOpened ? 6 : 8 ;
+  const itemsPerPage = 8 ;
 
   useEffect(() => {
     dispatch(fetchTeamMembers());

@@ -56,8 +56,8 @@ const RegisterNewMember = ({ handleClose }) => {
   };
 
   return (
-    <div className="bg-slate-800/10 border border-slate-200/10 rounded-xl w-full min-w-50 max-w-100 p-3.5 mt-2 mr-2 mb-2">
-      <div className="flex items-start justify-between mb-10">
+    <div className="fixed p-5 w-150 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-xl shadow-2xl ">
+      <div className="flex items-start justify-between mb-6">
         <div className="flex flex-row items-center gap-2">
           <span>
             <img className="w-12" src={MemberIcon} alt="MemberIcon" />
@@ -68,14 +68,14 @@ const RegisterNewMember = ({ handleClose }) => {
           </div>
         </div>
         <div>
-          <button onClick={handleClose}>&#x2716;</button>
+          <button className="cursor-pointer" onClick={handleClose}>&#x2716;</button>
         </div>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           label="Full Name"
           type="text"
-          className="w-full mb-2"
+          className="w-full mb-2 h-10"
           placeholder="Enter full name"
           {...register("fullName", {
             required: "Full name is required",
@@ -84,36 +84,48 @@ const RegisterNewMember = ({ handleClose }) => {
         <Input
           label="Email Address"
           type="email"
-          className="w-full mb-2"
+          className="w-full mb-2 h-10"
           placeholder="Enter email address"
           {...register("email", {
             required: "Email is required",
           })}
         />
-        <SelectInput
-          label="Role"
-          type="select"
-          isLableReq
-          selectInputClass="w-full mb-2"
-          options={roleOptions}
-          {...register("role", {
-            onChange: (e) => setRole(e.target.value),
-          })}
-        />
-        <SelectInput
-          label="Designation"
-          selectInputClass="w-full mb-2"
-          isLableReq
-          options={designationOptions[role] || []}
-          {...register("designation")}
-        />
-        <Input
-          label="Phone Number"
-          type="number"
-          className="w-full mb-2"
-          placeholder="Enter phone number"
-          {...register("phoneNo")}
-        />
+        <div className="flex w-full justify-between">
+          <SelectInput
+            label="Role"
+            type="select"
+            isLableReq
+            selectInputClass="w-67 mb-2 h-10"
+            options={roleOptions}
+            {...register("role", {
+              onChange: (e) => setRole(e.target.value),
+            })}
+          />
+          <SelectInput
+            label="Designation"
+            selectInputClass="w-67 mb-2 h-10"
+            isLableReq
+            options={designationOptions[role] || []}
+            {...register("designation")}
+          />
+        </div>
+        <div className="flex justify-between ">
+          <Input
+            label="Phone Number"
+            type="number"
+            className="w-67 mb-2 h-10"
+            placeholder="Enter phone number"
+            {...register("phoneNo")}
+          />
+          <SelectInput
+            label="Status"
+            type="select"
+            isLableReq
+            selectInputClass="w-67 mb-2 h-10"
+            options={statusOptions}
+            {...register("status")}
+          />
+        </div>
         <DragAndDrop
           name="profileImage"
           label="Profile Image"
@@ -124,24 +136,16 @@ const RegisterNewMember = ({ handleClose }) => {
           setValue={setValue}
           {...register("profileImage")}
         />
-        <SelectInput
-          label="Status"
-          type="select"
-          isLableReq
-          selectInputClass="w-full mb-2"
-          options={statusOptions}
-          {...register("status")}
-        />
-        <div className="flex flex-row justify-end gap-5 mt-6 ">
+        <div className="flex flex-row justify-end gap-5 mt-3 ">
           <button
-            className="bg-slate-800 px-4 py-2 rounded-lg"
+            className="bg-slate-800 px-4 py-2 rounded-lg cursor-pointer"
             type="button"
             onClick={handleClose}
           >
             Cancel
           </button>
           <button
-            className="bg-linear-to-r from-violet-400 to-indigo-500 px-4 py-2 rounded-lg"
+            className="bg-linear-to-r from-violet-400 to-indigo-500 px-4 py-2 rounded-lg cursor-pointer"
             type="submit"
           >
             Create Member

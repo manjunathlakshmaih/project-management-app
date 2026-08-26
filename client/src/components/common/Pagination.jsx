@@ -27,7 +27,7 @@ const Pagination = ({
   };
 
   return (
-    <div className="flex justify-between items-center p-4 mt-2 mb-2">
+    <div className="flex justify-between items-center px-2 mt-2">
       {/* Showing text */}
       <div className="text-base text-slate-400">
         Showing {startItem} to {endItem} of {totalItems} {itemName}

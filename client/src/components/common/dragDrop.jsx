@@ -54,26 +54,26 @@ const DragAndDrop = ({
       </label>
 
       <div
-        className="w-full flex flex-col justify-center items-center p-3 border-2 border-dashed border-slate-600 rounded-2xl bg-slate-800/10 mb-2"
+        className="w-full flex flex-col justify-center items-center p-2 border-2 border-dashed border-slate-600 rounded-2xl bg-slate-800/10 mb-2"
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        <img className="w-12 mb-2" src={fileUpload} alt="file upload" />
+        <img className="w-11" src={fileUpload} alt="file upload" />
 
         <p className="text-sm font-bold text-slate-200">
           Drag & Drop an image here
         </p>
         <button
-          className="text-sm text-blue-700"
+          className="text-sm text-blue-700 cursor-pointer"
           onClick={() => fileInputRef.current.click()}
         >
           or click to browsr
         </button>
 
         {file ? (
-          <p className="text-sm text-green-500 mt-2">{file.name}</p>
+          <p className="text-sm text-green-500">{file.name}</p>
         ) : (
-          <p className="text-sm text-slate-500 mt-2">Max Size: {maxSize} MB</p>
+          <p className="text-sm text-slate-500">Max Size: {maxSize} MB</p>
         )}
 
         <input
