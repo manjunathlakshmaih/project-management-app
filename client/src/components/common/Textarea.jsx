@@ -1,4 +1,11 @@
-const Textarea = ({ label, placeholder, defaultValue, ...register }) => {
+const Textarea = ({
+  label,
+  placeholder,
+  defaultValue,
+  rows = 2,
+  textAreaClass,
+  ...register
+}) => {
   return (
     <div>
       <label className="block mb-2 text-sm font-medium text-slate-300">
@@ -6,13 +13,14 @@ const Textarea = ({ label, placeholder, defaultValue, ...register }) => {
       </label>
 
       <textarea
-        rows={2}
+        rows={rows}
         placeholder={placeholder}
         defaultValue={defaultValue}
-        className="
+        className={` ${textAreaClass}
       w-full
-      p-4
-      bg-slate-800
+      px-4
+      py-2
+      bg-slate-900     
       border
       border-slate-700
       rounded-xl
@@ -22,7 +30,7 @@ const Textarea = ({ label, placeholder, defaultValue, ...register }) => {
       focus:outline-none
       focus:ring-2
       focus:ring-violet-500
-    "
+    `}
         {...register}
       />
     </div>

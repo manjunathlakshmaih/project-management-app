@@ -11,6 +11,7 @@ import {
 } from "../../utils/DropdownSelection/SelectInputHelper";
 import DragAndDrop from "../common/dragDrop";
 import { fetchTeamMembers } from "../../redux/teams/TeamThunk";
+import { addNewProject } from "../../redux/project/ProjectThunk";
 
 const RegisterProject = ({ onClickBack }) => {
   const dispatch = useDispatch();
@@ -35,6 +36,11 @@ const RegisterProject = ({ onClickBack }) => {
 
   const onSubmit = (formData) => {
     console.log(formData);
+    try {
+      dispatch(addNewProject(formData));
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const handleMemberDropdownOpen = async () => {
@@ -52,54 +58,56 @@ const RegisterProject = ({ onClickBack }) => {
 
   return (
     <div className="w-full px-10 py-8">
-      <div className="flex flex-row justify-between mb-5">
+      <div className="flex flex-row justify-between mt-5 mb-10">
         <div className="flex flex-col items-start justify-between">
-          <h2 className="text-lg font-bold">Add New Project</h2>
-          <p className="text-sm text-slate-700 font-medium">
+          <h2 className="text-2xl font-bold">Add New Project</h2>
+          <p className="text-base text-slate-700 font-medium">
             Create a new project and get started
           </p>
         </div>
         <button
           type="button"
           onClick={onClickBack}
-          className="text-base text-purple-600"
+          className="text-lg text-purple-600 pr-4"
         >
           Back to Project
         </button>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-row gap-20 items-center w-full">
-          <div>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+        <div className="flex flex-row gap-20 items-start w-full">
+          <div className="w-full">
             <Input
               label="Project Name"
               placeholder="Enter project name"
-              className="w-full h-10 mb-1"
+              className="w-full max-w-3xl h-12 mb-1"
               type="text"
+              required={true}
               {...register("projectName")}
             />
             <Textarea
-              row={2}
+              rows={4}
               label="Description"
               placeholder="Enter Project description..."
+              textAreaClass= "bg-slate-800"
               {...register("description")}
             />
-            <div className="flex justify-between w-full">
+            <div className="flex gap-5 w-full ">
               <SelectInput
                 isLableReq={true}
                 label="Status"
-                selectInputClass="w-60 h-10"
+                selectInputClass="flex-1 w-full max-w-3xl h-12 mb-1"
                 options={projectStatusOptions()}
                 {...register("status")}
               />
               <SelectInput
                 isLableReq={true}
                 label="Priority"
-                selectInputClass="w-60 h-10 mb-1"
+                selectInputClass="flex-1 w-full max-w-3xl h-12 mb-1"
                 options={priorityOptions()}
                 {...register("priority")}
               />
             </div>
-            <div className="flex flex-row gap-10 items-start w-full">
+            <div className="flex flex-row gap-5 items-start w-full">
               <DateInput
                 className="flex-1 mb-1"
                 label="Start Date"
@@ -114,19 +122,19 @@ const RegisterProject = ({ onClickBack }) => {
             <SelectInput
               isLableReq={true}
               label="Project Members"
-              selectInputClass="w-130 h-10"
+              selectInputClass="w-130 h-12"
               options={memberOptions}
               onFocus={handleMemberDropdownOpen}
             />
           </div>
-          <div>
+          <div className="w-full">
             <DragAndDrop
               name="profileImage"
               label="Profile Image"
               accept=".png,.jpg,.jpeg"
               allowedTypes={["image/png", "image/jpeg"]}
               maxSize={2}
-              className="w-100 h-80"
+              className="w-full max-w-sm h-80"
               onFileSelect={(file) => console.log(file)}
               setValue={setValue}
               {...register("profileImage")}
@@ -134,7 +142,7 @@ const RegisterProject = ({ onClickBack }) => {
           </div>
         </div>
         <div>
-          <div className="flex flex-row justify-end gap-5 mt-3 ">
+          <div className="w-165 flex flex-row justify-end gap-5 mt-15">
             <button
               className="bg-slate-800 px-4 py-2 rounded-lg cursor-pointer"
               type="button"
