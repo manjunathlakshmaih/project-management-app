@@ -1,17 +1,17 @@
+import Label from "./Label";
 const Textarea = ({
   label,
   placeholder,
   defaultValue,
   rows = 2,
   textAreaClass,
+  required = false,
+  isLableReq,
   ...register
 }) => {
   return (
     <div>
-      <label className="block mb-2 text-sm font-medium text-slate-300">
-        {label}
-      </label>
-
+      <Label required={required} label={label} isLableReq={isLableReq} />
       <textarea
         rows={rows}
         placeholder={placeholder}

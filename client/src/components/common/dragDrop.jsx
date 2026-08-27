@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import fileUpload from "../../assets/teams/fileUpload.svg";
+import Label from "./Label";
 
 const DragAndDrop = ({
   name,
@@ -9,7 +10,8 @@ const DragAndDrop = ({
   maxSize,
   onFileSelect,
   setValue,
-  className
+  className,
+  isLableReq
 }) => {
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
@@ -50,9 +52,7 @@ const DragAndDrop = ({
 
   return (
     <div className="w-full flex flex-col items-start">
-      <label className="mb-2 text-sm font-semibold text-slate-300">
-        {label}
-      </label>
+      <Label label={label} isLableReq={isLableReq} />
 
       <div
         className={`flex flex-col justify-center items-center p-2 border-2 border-dashed border-slate-600 rounded-2xl bg-slate-800/10 mb-2 ${className}`}

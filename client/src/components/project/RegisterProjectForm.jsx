@@ -70,7 +70,7 @@ const RegisterProject = ({ onClickBack }) => {
           onClick={onClickBack}
           className="text-lg text-purple-600 pr-4"
         >
-          Back to Project
+         &larr; Back to Project
         </button>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
@@ -81,12 +81,15 @@ const RegisterProject = ({ onClickBack }) => {
               placeholder="Enter project name"
               className="w-full max-w-3xl h-12 mb-1"
               type="text"
+              isLableReq={true}
               required={true}
               {...register("projectName")}
             />
             <Textarea
               rows={4}
               label="Description"
+              required={true}
+              isLableReq={true}
               placeholder="Enter Project description..."
               textAreaClass= "bg-slate-800"
               {...register("description")}
@@ -95,6 +98,8 @@ const RegisterProject = ({ onClickBack }) => {
               <SelectInput
                 isLableReq={true}
                 label="Status"
+                required={true}
+                selectClass="flex-1"
                 selectInputClass="flex-1 w-full max-w-3xl h-12 mb-1"
                 options={projectStatusOptions()}
                 {...register("status")}
@@ -102,6 +107,8 @@ const RegisterProject = ({ onClickBack }) => {
               <SelectInput
                 isLableReq={true}
                 label="Priority"
+                required={true}
+                selectClass="flex-1"
                 selectInputClass="flex-1 w-full max-w-3xl h-12 mb-1"
                 options={priorityOptions()}
                 {...register("priority")}
@@ -109,13 +116,17 @@ const RegisterProject = ({ onClickBack }) => {
             </div>
             <div className="flex flex-row gap-5 items-start w-full">
               <DateInput
-                className="flex-1 mb-1"
+                dateClass="flex-1 mb-1 h-12"
+                required={true}
+                isLableReq={true}
                 label="Start Date"
                 {...register("startDate")}
               />
               <DateInput
-                className="flex-1"
                 label="Due date"
+                required={true}
+                isLableReq={true}
+                dateClass="flex-1 mb-1 h-12"
                 {...register("dueDate")}
               />
             </div>
@@ -123,6 +134,8 @@ const RegisterProject = ({ onClickBack }) => {
               isLableReq={true}
               label="Project Members"
               selectInputClass="w-130 h-12"
+              required={true}
+              
               options={memberOptions}
               onFocus={handleMemberDropdownOpen}
             />
@@ -131,6 +144,7 @@ const RegisterProject = ({ onClickBack }) => {
             <DragAndDrop
               name="profileImage"
               label="Profile Image"
+              isLableReq={true}
               accept=".png,.jpg,.jpeg"
               allowedTypes={["image/png", "image/jpeg"]}
               maxSize={2}
@@ -142,7 +156,7 @@ const RegisterProject = ({ onClickBack }) => {
           </div>
         </div>
         <div>
-          <div className="w-165 flex flex-row justify-end gap-5 mt-15">
+          <div className="w-165 flex flex-row justify-end gap-5 mt-10">
             <button
               className="bg-slate-800 px-4 py-2 rounded-lg cursor-pointer"
               type="button"

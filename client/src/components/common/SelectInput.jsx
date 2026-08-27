@@ -1,4 +1,5 @@
 import downarrow from "../../assets/downarrow.svg";
+import Label from "./Label";
 
 const SelectInput = ({
   label,
@@ -8,7 +9,9 @@ const SelectInput = ({
   defaultValue,
   optionClassName,
   dropIconClassName,
+  selectClass,
   onFocus,
+  required = false,
   ...register
 }) => {
   const renderOptions = () => {
@@ -17,14 +20,22 @@ const SelectInput = ({
     return options.map((option, index) => {
       if (typeof option === "string") {
         return (
-          <option key={index} value={option} className={`${optionClassName} lg:text-base md:text-sm`}>
+          <option
+            key={index}
+            value={option}
+            className={`${optionClassName} lg:text-base md:text-sm`}
+          >
             {option}
           </option>
         );
       }
 
       return (
-        <option key={option.value ?? index} value={option.value ?? ""} className={`${optionClassName} lg:text-base md:text-sm`}>
+        <option
+          key={option.value ?? index}
+          value={option.value ?? ""}
+          className={`${optionClassName} lg:text-base md:text-sm`}
+        >
           {option.label ?? option.value ?? ""}
         </option>
       );
@@ -32,12 +43,8 @@ const SelectInput = ({
   };
 
   return (
-    <div className="flex-1">
-      {isLableReq && (
-        <label className="text-sm font-semibold text-slate-300 mb-2 block">
-          {label}
-        </label>
-      )}
+    <div className={`${selectClass}`}>
+      <Label required={required} label={label} isLableReq={isLableReq} />
       <div className="relative">
         <select
           defaultValue={defaultValue}

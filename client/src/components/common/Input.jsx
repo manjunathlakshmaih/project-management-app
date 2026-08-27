@@ -1,4 +1,5 @@
 import search from "../../assets/search.svg";
+import Label from "./Label";
 const Input = ({
   label,
   className,
@@ -6,6 +7,7 @@ const Input = ({
   iconClass,
   Search,
   required = false,
+  isLableReq,
   ...props
 }) => {
   // Remove 'search' prop if it exists to prevent React warning
@@ -13,14 +15,7 @@ const Input = ({
 
   return (
     <div className="relative">
-      <div className="relative w-fit">
-        {label && (
-          <label className="text-sm font-semibold text-slate-300 mb-2 pr-2.5 block">
-            {label}
-          </label>
-        )}
-        {required && <span className="text-xl text-red-900 right-0 top-0 absolute ">*</span>}
-      </div>
+      <Label required={required} label={label} isLableReq={isLableReq} />
       <input
         {...inputProps}
         className={`${className || ""} bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 outline-none md:placeholder:text-sm lg:placeholder:text-base`}
