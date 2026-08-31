@@ -34,12 +34,21 @@ const RegisterProject = ({ onClickBack }) => {
     },
   });
 
-  const onSubmit = (formData) => {
-    console.log(formData);
+  const onSubmit = (data) => {
+    const payload = new FormData();
+
+    payload.append("projectName", data.projectName);
+    payload.append("description", data.description);
+    payload.append("status", data.status);
+    payload.append("priority", data.priority);
+    payload.append("startDate", data.startDate);
+    payload.append("dueDate", data.dueDate);
+    payload.append("profileImage", data.profileImage);
+
     try {
-      dispatch(addNewProject(formData));
+      dispatch(addNewProject(payload));
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -48,13 +57,13 @@ const RegisterProject = ({ onClickBack }) => {
       const result = await dispatch(fetchTeamMembers()).unwrap();
       const options = result?.data?.map((member) => ({
         label: member.fullName,
-        value: member.id
+        value: member.id,
       }));
       setMemberOptions(options || []);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div className="w-full px-10 py-8">
@@ -70,7 +79,7 @@ const RegisterProject = ({ onClickBack }) => {
           onClick={onClickBack}
           className="text-lg text-purple-600 pr-4"
         >
-         &larr; Back to Project
+          &larr; Back to Project
         </button>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
@@ -91,7 +100,7 @@ const RegisterProject = ({ onClickBack }) => {
               required={true}
               isLableReq={true}
               placeholder="Enter Project description..."
-              textAreaClass= "bg-slate-800"
+              textAreaClass="bg-slate-800"
               {...register("description")}
             />
             <div className="flex gap-5 w-full ">
@@ -135,7 +144,6 @@ const RegisterProject = ({ onClickBack }) => {
               label="Project Members"
               selectInputClass="w-130 h-12"
               required={true}
-              
               options={memberOptions}
               onFocus={handleMemberDropdownOpen}
             />

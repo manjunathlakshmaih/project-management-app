@@ -18,7 +18,7 @@ const Input = ({
       <Label required={required} label={label} isLableReq={isLableReq} />
       <input
         {...inputProps}
-        className={`${className || ""} bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 outline-none md:placeholder:text-sm lg:placeholder:text-base`}
+        className={`${className || ""} bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 outline-none md:placeholder:text-sm lg:placeholder:text-base mb-1`}
       />
       {isSearch && (
         <span

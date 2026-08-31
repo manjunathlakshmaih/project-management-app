@@ -68,14 +68,18 @@ const RegisterNewMember = ({ handleClose }) => {
           </div>
         </div>
         <div>
-          <button className="cursor-pointer" onClick={handleClose}>&#x2716;</button>
+          <button className="cursor-pointer" onClick={handleClose}>
+            &#x2716;
+          </button>
         </div>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           label="Full Name"
           type="text"
-          className="w-full mb-2 h-10"
+          required={true}
+          className="w-full mb-2 h-12"
+          isLableReq={true}
           placeholder="Enter full name"
           {...register("fullName", {
             required: "Full name is required",
@@ -84,18 +88,22 @@ const RegisterNewMember = ({ handleClose }) => {
         <Input
           label="Email Address"
           type="email"
-          className="w-full mb-2 h-10"
+          required={true}
+          className="w-full mb-2 h-12"
+          isLableReq={true}
           placeholder="Enter email address"
           {...register("email", {
             required: "Email is required",
           })}
         />
-        <div className="flex w-full justify-between">
+        <div className="flex gap-5 w-full ">
           <SelectInput
             label="Role"
             type="select"
-            isLableReq
-            selectInputClass="w-67 mb-2 h-10"
+            required={true}
+            isLableReq={true}
+            selectClass="flex-1"
+            selectInputClass="flex-1 w-full max-w-3xl h-12 mb-1"
             options={roleOptions}
             {...register("role", {
               onChange: (e) => setRole(e.target.value),
@@ -103,25 +111,31 @@ const RegisterNewMember = ({ handleClose }) => {
           />
           <SelectInput
             label="Designation"
-            selectInputClass="w-67 mb-2 h-10"
-            isLableReq
+            selectInputClass="flex-1 w-full max-w-3xl h-12 mb-1"
+            required={true}
+            isLableReq={true}
+            selectClass="flex-1"
             options={designationOptions[role] || []}
             {...register("designation")}
           />
         </div>
-        <div className="flex justify-between ">
+        <div className="flex w-full gap-5">
           <Input
             label="Phone Number"
             type="number"
-            className="w-67 mb-2 h-10"
+            required={true}
+            isLableReq={true}
+            className="flex-3 w-68 max-w-3xl h-12 mb-1"
             placeholder="Enter phone number"
             {...register("phoneNo")}
           />
           <SelectInput
             label="Status"
             type="select"
-            isLableReq
-            selectInputClass="w-67 mb-2 h-10"
+            required={true}
+            isLableReq={true}
+            selectInputClass="flex-1 w-full max-w-3xl h-12 mb-1"
+            selectClass="flex-1"
             options={statusOptions}
             {...register("status")}
           />
@@ -129,6 +143,8 @@ const RegisterNewMember = ({ handleClose }) => {
         <DragAndDrop
           name="profileImage"
           label="Profile Image"
+          isLableReq={true}
+          className="w-full"
           accept=".png,.jpg,.jpeg"
           allowedTypes={["image/png", "image/jpeg"]}
           maxSize={2}

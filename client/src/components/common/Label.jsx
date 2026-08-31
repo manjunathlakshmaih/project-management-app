@@ -1,6 +1,6 @@
 const Label = ({ required, isLableReq = false, label }) => {
   return (
-    <div className="flex gap-0.5">
+    <div className={`flex gap-0.5 ${!required ? "mb-1" : '' }`}>
       {isLableReq && (
         <label className="text-sm font-semibold text-slate-300">{label}</label>
       )}
