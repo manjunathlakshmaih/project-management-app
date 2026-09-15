@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addNewProject } from "./projectThunk";
+import { addNewProject, fetchProjects } from "./ProjectThunk";
 
 const initialState = {
   project: [],
@@ -14,10 +14,22 @@ const projectSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
+      //get
+      .addCase(fetchProjects.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchProjects.fulfilled, (state, action) => {
+        state.loading = false;
+        state.project = action.payload;
+      })
+      .addCase(fetchProjects.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
 
       //post
       .addCase(addNewProject.pending, (state) => {
-        state.loading = false;
+        state.loading = true;
       })
       .addCase(addNewProject.fulfilled, (state, action) => {
         state.loading = false;
@@ -26,7 +38,7 @@ const projectSlice = createSlice({
       .addCase(addNewProject.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-      })
+      });
   },
 });
 

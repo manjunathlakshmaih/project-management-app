@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ProjectStats from "../components/project/ProjectStats";
 import tatal from "../assets/total.svg";
 import active from "../assets/active.svg";
@@ -8,11 +9,23 @@ import ProjectFilters from "../components/project/ProjectFilters";
 import ProjectDetailCard from "../components/project/ProjectCard";
 import ProjectDetails from "./data";
 import ProjectDetailsDrawer from "../components/project/ProjectDetailsDrawer/ProjectDetailsDrawer";
+import { fetchProjects } from "../redux/project/ProjectThunk";
 
 const Projects = () => {
   const [openDetailDrawer, setOpenDetailDrawer] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const ProjectData = [...ProjectDetails];
+  const dispatch = useDispatch();
+  const { project, loading, error } = useSelector(
+    (state) => state.project,
+  );
+  console.log("project:", project);
+
+  useEffect(() => {
+      dispatch(fetchProjects());
+    }, [dispatch]);
+  
+
   const ProjectStatsData = [
     {
       icon: tatal,

@@ -21,6 +21,8 @@ app.use("/api/team-members", require("./routes/teamMemberRoutes"));
 
 app.use("/api/register-project", require("./routes/projectRoutes"));
 
+app.use("/api/projects", require("./routes/projectRoutes"));
+
 const startServer = async () => {
   await connectDB();
 

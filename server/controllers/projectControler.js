@@ -30,4 +30,19 @@ const createNewProject = async (req, res) => {
   }
 };
 
-module.exports = { createNewProject };
+const getProjectData = async (req, res) => {
+  try {
+    const projectData = await Project.find();
+    res.status(200).json({
+      success: true,
+      data: projectData,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: true,
+      message: error.message,
+    });
+  }
+};
+
+module.exports = { createNewProject, getProjectData };
