@@ -33,8 +33,30 @@ const createNewProject = async (req, res) => {
 const getProjectData = async (req, res) => {
   try {
     const projectData = await Project.find();
+    const projectStats = [
+      {
+        label: "Total Projects",
+        count: projectData.length,
+      },
+      {
+        label: "Active Projects",
+        count: projectData.filter((member) => member.status === "Active")
+          .length,
+      },
+      {
+        label: "Completed",
+        count: projectData.filter((member) => member.status === "Completed")
+          .length,
+      },
+      {
+        label: "On Hold",
+        count: projectData.filter((member) => member.status === "On Hold")
+          .length,
+      },
+    ];
     res.status(200).json({
       success: true,
+      projectCount: projectStats,
       data: projectData,
     });
   } catch (error) {

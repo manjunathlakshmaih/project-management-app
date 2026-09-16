@@ -14,17 +14,17 @@ import { fetchProjects } from "../redux/project/ProjectThunk";
 const Projects = () => {
   const [openDetailDrawer, setOpenDetailDrawer] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
-  const ProjectData = [...ProjectDetails];
+
   const dispatch = useDispatch();
-  const { project, loading, error } = useSelector(
+  const { project, projectCount, loading, error } = useSelector(
     (state) => state.project,
   );
-  console.log("project:", project);
+  const ProjectData = project;
+  console.log("ProjectData:", ProjectData, "projectCount:", projectCount);
 
   useEffect(() => {
-      dispatch(fetchProjects());
-    }, [dispatch]);
-  
+    dispatch(fetchProjects());
+  }, [dispatch]);
 
   const ProjectStatsData = [
     {
@@ -84,7 +84,7 @@ const Projects = () => {
           {ProjectData.map((project) => (
             <ProjectDetailCard
               key={project.id}
-              heading={project.title}
+              heading={project.projectName}
               Priority={project.priority}
               Description={project.description}
               progress={project.progress}

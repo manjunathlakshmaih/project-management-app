@@ -3,6 +3,7 @@ import { addNewProject, fetchProjects } from "./ProjectThunk";
 
 const initialState = {
   project: [],
+  projectCount: [],
   loading: false,
   error: null,
 };
@@ -21,6 +22,7 @@ const projectSlice = createSlice({
       .addCase(fetchProjects.fulfilled, (state, action) => {
         state.loading = false;
         state.project = action.payload;
+        state.count = action.payload.projectCount;
       })
       .addCase(fetchProjects.rejected, (state, action) => {
         state.loading = false;
