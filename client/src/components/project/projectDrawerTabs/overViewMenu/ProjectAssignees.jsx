@@ -8,6 +8,7 @@ const ProjectAssignees = ({
   const displayCount = drawerMembers ? 5 : 3;
   const MinDeveloper = users.slice(0, displayCount);
   const rem = users.length - MinDeveloper.length;
+  const dateOnly = dueDate.split("T")[0];
 
   return (
     <div
@@ -29,7 +30,7 @@ const ProjectAssignees = ({
           <span className="text-base font-medium">+{rem}</span>
         )}
       </div>
-      {!drawerMembers && (<p>{dueDate}</p>)}
+      {!drawerMembers && (<p>{dateOnly}</p>)}
     </div>
   );
 };

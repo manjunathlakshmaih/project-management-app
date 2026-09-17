@@ -20,7 +20,7 @@ const TeamSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchTeamMembers.fulfilled, (state, action) => {
-        console.log("payload", action.payload);
+        
         state.loading = false;
         state.teams = action.payload.data;
         state.count = action.payload.count

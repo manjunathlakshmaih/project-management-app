@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { addNewProject, fetchProjects } from "./ProjectThunk";
 
 const initialState = {
-  project: [],
+  projects: [],
   projectCount: [],
   loading: false,
   error: null,
@@ -21,8 +21,8 @@ const projectSlice = createSlice({
       })
       .addCase(fetchProjects.fulfilled, (state, action) => {
         state.loading = false;
-        state.project = action.payload;
-        state.count = action.payload.projectCount;
+        state.projects = action.payload.projects;
+        state.projectCount = action.payload.projectCount;
       })
       .addCase(fetchProjects.rejected, (state, action) => {
         state.loading = false;

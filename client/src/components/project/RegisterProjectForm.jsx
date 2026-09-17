@@ -12,6 +12,7 @@ import {
 import DragAndDrop from "../common/dragDrop";
 import { fetchTeamMembers } from "../../redux/teams/TeamThunk";
 import { addNewProject } from "../../redux/project/ProjectThunk";
+import AdvancedSelect from "../common/AdvancedSelect";
 
 const RegisterProject = ({ onClickBack }) => {
   const dispatch = useDispatch();
@@ -31,10 +32,12 @@ const RegisterProject = ({ onClickBack }) => {
       priority: "",
       startDate: "",
       dueDate: "",
+      members:[],
     },
   });
 
   const onSubmit = (data) => {
+    console.log(data)
     const payload = new FormData();
 
     payload.append("projectName", data.projectName);
@@ -44,6 +47,7 @@ const RegisterProject = ({ onClickBack }) => {
     payload.append("startDate", data.startDate);
     payload.append("dueDate", data.dueDate);
     payload.append("profileImage", data.profileImage);
+    payload.append("profileImage", data.members);
 
     try {
       dispatch(addNewProject(payload));
@@ -146,7 +150,9 @@ const RegisterProject = ({ onClickBack }) => {
               required={true}
               options={memberOptions}
               onFocus={handleMemberDropdownOpen}
+              {...register("members")}
             />
+            <AdvancedSelect options={memberOptions}/>
           </div>
           <div className="w-full">
             <DragAndDrop

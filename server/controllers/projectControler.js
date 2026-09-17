@@ -54,10 +54,11 @@ const getProjectData = async (req, res) => {
           .length,
       },
     ];
+    console.log(projectStats);
     res.status(200).json({
       success: true,
       projectCount: projectStats,
-      data: projectData,
+      projects: projectData,
     });
   } catch (error) {
     res.status(500).json({

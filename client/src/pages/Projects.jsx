@@ -16,11 +16,11 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const dispatch = useDispatch();
-  const { project, projectCount, loading, error } = useSelector(
+  const {projects, projectCount, loading, error} = useSelector(
     (state) => state.project,
   );
-  const ProjectData = project;
-  console.log("ProjectData:", ProjectData, "projectCount:", projectCount);
+  const ProjectData = projects;
+  const projectStats = projectCount;
 
   useEffect(() => {
     dispatch(fetchProjects());
@@ -29,26 +29,26 @@ const Projects = () => {
   const ProjectStatsData = [
     {
       icon: tatal,
-      title: "Total Projects",
-      value: 246,
+      title: projectStats?.[0]?.label || 'Total Projects',
+      value: projectStats?.[0]?.count || '-',
       status: "All Time Projects",
     },
     {
       icon: active,
-      title: "Active Projects",
-      value: 246,
+      title: projectStats?.[1]?.label || 'Active Projects',
+      value: projectStats?.[1]?.count || '-',
       status: "In progress",
     },
     {
       icon: completed,
-      title: "Completed",
-      value: 246,
+      title: projectStats?.[2]?.label || 'Completed',
+      value: projectStats?.[2]?.count || '-',
       status: "Successfully done",
     },
     {
       icon: paused,
-      title: "On Hold",
-      value: 246,
+      title: projectStats?.[3]?.label || 'On Hold',
+      value: projectStats?.[3]?.count || '-',
       status: "Paused Projects",
     },
   ];

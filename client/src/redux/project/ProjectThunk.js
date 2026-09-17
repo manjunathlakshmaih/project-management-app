@@ -5,7 +5,7 @@ export const fetchProjects = createAsyncThunk(
   "projects/fetchProject",
   async () => {
     const response = await getProject();
-    return response.data.data;
+    return response.data;
   },
 );
 

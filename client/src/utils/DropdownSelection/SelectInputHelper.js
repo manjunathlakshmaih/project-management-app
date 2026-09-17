@@ -12,7 +12,7 @@ export const projectStatusOptions = () => {
   return [
     { value: "", label: "Select Status" },
     { value: "Planning", label: "Planning" },
-    { value: "Not Started", label: "Not Started" },
+    { value: "Active", label: "Active" },
     { value: "In Progress", label: "In Progress" },
     { value: "Completed", label: "Completed" },
     { value: "On Hold", label: "On Hold" },
