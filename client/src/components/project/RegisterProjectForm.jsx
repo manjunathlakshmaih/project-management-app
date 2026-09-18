@@ -32,12 +32,12 @@ const RegisterProject = ({ onClickBack }) => {
       priority: "",
       startDate: "",
       dueDate: "",
-      members:[],
+      members: [],
     },
   });
 
   const onSubmit = (data) => {
-    console.log(data)
+    console.log(data);
     const payload = new FormData();
 
     payload.append("projectName", data.projectName);
@@ -143,16 +143,14 @@ const RegisterProject = ({ onClickBack }) => {
                 {...register("dueDate")}
               />
             </div>
-            <SelectInput
-              isLableReq={true}
-              label="Project Members"
-              selectInputClass="w-130 h-12"
-              required={true}
+            <AdvancedSelect
               options={memberOptions}
-              onFocus={handleMemberDropdownOpen}
-              {...register("members")}
+              isLableReq={true}
+              required={true}
+              label="Project Members"
+              onMenuOpen={handleMemberDropdownOpen}
+              className={"bg-slate-800 "}
             />
-            <AdvancedSelect options={memberOptions}/>
           </div>
           <div className="w-full">
             <DragAndDrop
